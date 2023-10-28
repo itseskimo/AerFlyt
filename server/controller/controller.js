@@ -1,0 +1,59 @@
+import * as vision from '@google-cloud/vision';
+import Passport from '../model/passport.js';
+
+export const textExtraction = async (request, response) => {
+    const CREDENTIALS = JSON.parse(JSON.stringify(
+        {
+            "type": "service_account",
+            "project_id": "ocr-scanner-403411",
+            "private_key_id": "bddd9c9216db933a3c25157623180450f0781bef",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCmq8ftjLNB9i/t\nJGHloJXaKVSKntpp2ApUBLx1HZ849iGTzNWuXDR37K13KAuQSNG+kXtwBqjrjxjY\nH8kF0TAZYyFjkXN+23X6Lc6cpMXjUWs4ka7RgvP6Xi4Dk4qNlYVrROKuKJqqc/qS\nqMl7+LffZxUKOs/vjy9tSh4h8nsnN96sBdZE4RKM7kpIbMyRz30GktkXw83/EOP6\nEXSW32Oqj7aJd1pc2pXaDugfTZ2xyzTeeWsZWg+VUhQExn0oPBR6ycDRMGfCzUkx\nhuWYVHp/nmyC5oqoXBNpMEjCdUC1/NaM6xjWPYlpW7ObJR00r49EqL8vw5Ut4ZE0\nOWMwMJN/AgMBAAECggEANYqHbjM9vpnUaYy/eiGtIekXBHTlWw0QvE7NL541cPn4\nbV9m4V0zabb5Pob5t/78igh4K9On3gwZAgyr6hd6KR2kMzUdcgoUCys97Sote8nC\n9OgvzZQQxkQM6g8yeisnMf9uBl562Pjq7MQV/aI3hye5JZEhDSblKGmf5m3bzAvs\ngdgZ1KqibNVAjZe4BJrAHbJLCGagoDyjLI0dCMLNf2XHc7BRLiD45C8mer1zkOPE\nCaIxKKeVbqdJGWKK5z3a9IcB4c+SpUi4zhk3L1Q4nbTiKyKox3AkBM4fCHpr5Qsu\nNr5wUlReCD83Jn8zlgTLqtg39sqB8ftfH2hZWA+I2QKBgQDelMqpTuxLSAwMvTE2\nLrnvTxMRiWLywJ2oylDw16qwXK/8HtZl41Xem8UkemfVfc+gAC9lsB0cPSMT+ynk\nYNVqWzhP5FUSLcemMJ9RSQKet0qCRn7mJMkwKeJvrQysPMF47/Nb0QNd3LN+0GCU\nYWX9PBggz+L75voqwGxJmN1VjQKBgQC/sgF1AqU0IUWLcP0XQ8NuBeBLh7HQ4q1Q\nQdSCp296SNYfsI/+YSX6iJ7TdyEFU38zLxNzVmGitcTMsNZjhYvrdASvxOsi8DdI\nuCPjcGnsZMgdjM61xHvTwaGImlVytlu1I+WelliNkv1CVFO9QXNOgJuTsrdbH1Ho\nEPLSmOhMOwKBgE1aeHQOsaAYEdf7iDbEVmoMmRvnGzQyLJiUdzy8Nt3D2IVOUkRm\nlVkf2Yur3pobdySr68zzP6qotKAlEZIE9SZZPWDGgaonrtLa4wNk1DxEhuhvh3qE\nHkdWxxL4mQbitnpJKdIm+XyNTvQrhuUKVF+Fmv0MQl45D4f8B6YsMf+hAoGActdT\nZCQnkKl2HmmcVjm0dM90ZgtvDbMfHXuysmtYr6u/C9EdEspklEkQzaMK10QEakeD\noY9Ygr/enLo8VfcFshMZU6vnKlE67YfTiEgqTQK7mGho1iBWBrBz84ByPHzfSA+v\nWmi7uGUc8IXQfQse5yLJEZz5l8+VpC+zKVONp00CgYEA0/5aCH3fj5DH7MmhyeHO\niGPot9O5xrXQaFfNs43mSiPqKpk5NNq0At3w4NAORx6EZjZzPUN+Wkv/uYzCk6C2\nqzRvi3eGmgSacS20nqtbdIyHmk+l+EuRhoNmQOOEO4D1yLzayhhp5S93NNt45ViD\nU2cF1Qplzxzq7LPDu6k+l5w=\n-----END PRIVATE KEY-----\n",
+            "client_email": "passport-scanner@ocr-scanner-403411.iam.gserviceaccount.com",
+            "client_id": "115842153054149085275",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/passport-scanner%40ocr-scanner-403411.iam.gserviceaccount.com",
+            "universe_domain": "googleapis.com"
+        }
+
+    ))
+
+
+    const CONFIG = {
+        credentials: {
+            private_key: CREDENTIALS.private_key,
+            client_email: CREDENTIALS.client_email
+        }
+    };
+
+    const client = new vision.ImageAnnotatorClient(CONFIG);
+
+
+
+    let [result] = await client.textDetection(request.body.data);
+    function removeHindiTextAndBackslash(inputText) {
+        return inputText
+            .replace(/[\u0900-\u097F]+/g, '')
+            .split(/(?<![0-9])\/(?![0-9])/g)
+            .map(part => part.trim().replace('-', '').replace('\n', ':').split('\n')[0]);
+    }
+
+    const filteredText = removeHindiTextAndBackslash(result.fullTextAnnotation.text);
+
+    try {
+        const newPassportData = await Passport.create({
+            data: filteredText,
+            createdAt: Date.now()
+        })
+
+        await newPassportData.save();
+
+        return response.status(200).json(newPassportData);
+    } catch (error) {
+        return response.status(500).json(error.message);
+    }
+
+}
+
+
