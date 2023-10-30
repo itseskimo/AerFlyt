@@ -1,12 +1,15 @@
 import express, { Router } from 'express';
 
 
-import { textExtraction } from '../controller/controller.js';
+import { textExtraction, login, register ,changePassword} from '../controller/controller.js';
 
 const route = express.Router();
 
 
 route.post("/scan-image", textExtraction);
+route.post("/login", login);
+route.post("/register", register);
+route.post("/change-password", changePassword);
 
 
 
