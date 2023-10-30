@@ -29,15 +29,79 @@ export const textExtraction = async (request, response) => {
 
     const client = new vision.ImageAnnotatorClient(CONFIG);
 
-
-
     let [result] = await client.textDetection(request.body.data);
+
+
+
+    function levenshteinDistance(s1, s2) {
+        const matrix = [];
+
+        for (let i = 0; i <= s1.length; i++) {
+            matrix[i] = [i];
+        }
+
+        for (let j = 0; j <= s2.length; j++) {
+            matrix[0][j] = j;
+        }
+
+        for (let i = 1; i <= s1.length; i++) {
+            for (let j = 1; j <= s2.length; j++) {
+                const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j] + 1,      // Deletion
+                    matrix[i][j - 1] + 1,      // Insertion
+                    matrix[i - 1][j - 1] + cost // Substitution
+                );
+            }
+        }
+
+        const distance = matrix[s1.length][s2.length];
+        const maxLength = Math.max(s1.length, s2.length);
+        const similarity = ((maxLength - distance) / maxLength) * 100;
+
+        return similarity;
+    }
+
+    function findMatchingString(targetString, stringArray) {
+        let bestMatch = '';
+        let bestSimilarity = 0;
+
+        for (const str of stringArray) {
+            const similarityPercentage = levenshteinDistance(targetString, str);
+            if (similarityPercentage > bestSimilarity) {
+                bestMatch = str;
+                bestSimilarity = similarityPercentage;
+            }
+        }
+
+        return { bestMatch, bestSimilarity };
+    }
+
+
+
+
     function removeHindiTextAndBackslash(inputText) {
-        return inputText
+        let strings = inputText
             .replace(/[\u0900-\u097F]+/g, '')
             .split(/(?<![0-9])\/(?![0-9])/g)
             .map(part => part.trim().replace('-', '').replace('\n', ':').split('\n')[0]);
+
+        const obj = {};
+
+        for (const str of strings) {
+            const [key, value] = str.split(':');
+
+            const dataToBeExtracted = ['Date of Expiry', 'Date of Birth', 'Passport No.', 'Date of Issue', 'Given Name(s)', 'Surname', 'Sex'];
+
+            const { bestMatch, bestSimilarity } = findMatchingString(key, dataToBeExtracted, value);
+
+            if (bestSimilarity.toFixed(2) > 60) {
+                obj[key] = value || '';
+            }
+        }
+        return obj;
     }
+
 
     const filteredText = removeHindiTextAndBackslash(result.fullTextAnnotation.text);
 

@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 const PassportSchema = new mongoose.Schema({
     data: {
-        type: Array,
+        type: Object,
         required: true
     },
 })
