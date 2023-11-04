@@ -5,10 +5,14 @@ import { useEffect } from "react";
 
 export default function Home() {
 
+  interface OTPlessUser {
+    waName: string;
+    waNumber: string;
+  }
 
   useEffect(() => {
     // Define the 'otpless' function
-    window.otpless = (otplessUser) => {
+    (window as any).otpless = (otplessUser : OTPlessUser) => {
       // Retrieve the user's details after successful login
       alert(JSON.stringify(otplessUser));
 
