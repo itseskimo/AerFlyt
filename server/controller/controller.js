@@ -110,7 +110,7 @@ export const textExtraction = async (request, response) => {
 
     try {
         const newPassportData = await Passport.create({
-            data:filteredText
+            data: filteredText
         })
 
         await newPassportData.save();
@@ -126,23 +126,23 @@ export const textExtraction = async (request, response) => {
 export const login = async (request, response) => {
 
     const { username, password } = request.body;
-  
+
     const user = await UserModel.findOne({ username });
-  
+
     if (!user) {
-      return response
-        .status(400)
-        .json({ message: "Username or password is incorrect" });
+        return response
+            .status(400)
+            .json({ message: "Username or password is incorrect" });
     }
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      return response
-        .status(400)
-        .json({ message: "Username or password is incorrect" });
+        return response
+            .status(400)
+            .json({ message: "Username or password is incorrect" });
     }
     const token = jwt.sign({ id: user._id }, "secret");
-    response.json({ token, userID: user._id });
+    response.json({ token, name: username });
 }
 
 
@@ -152,7 +152,7 @@ export const register = async (request, response) => {
     const user = await UserModel.findOne({ username });
 
     if (user) {
-      return response.status(400).json({ message: "Username already exists" });
+        return response.status(400).json({ message: "Username already exists" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -164,34 +164,34 @@ export const register = async (request, response) => {
 
 export const changePassword = async (request, response) => {
     const { token, oldPassword, newPassword } = request.body;
-  
+
     try {
-      const decoded = jwt.verify(token, 'secret');
-      const userId = decoded.userId; // Extract the user ID from the token payload.
-  
-      const user = await UserModel.findById(userId);
-  
-      if (!user) {
-        return response.status(404).json({ message: 'User not found' });
-      }
-  
-      const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
-  
-      if (!isPasswordValid) {
-        return response.status(400).json({ message: 'Old password is incorrect' });
-      }
-  
-      // Hash the new password before saving it.
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
-  
-      user.password = hashedPassword;
-      await user.save();
-  
-      // You can issue a new token if needed.
-      const newToken = jwt.sign({ userId: user._id }, 'secret');
-  
-      response.json({ token: newToken, userID: user._id });
+        const decoded = jwt.verify(token, 'secret');
+        const userId = decoded.id; // Extract the user ID from the token payload.
+
+        const user = await UserModel.findById(userId);
+
+        if (!user) {
+            return response.status(404).json({ message: 'User not found' });
+        }
+
+        const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
+
+        if (!isPasswordValid) {
+            return response.status(400).json({ message: 'Old password is incorrect' });
+        }
+
+        // Hash the new password before saving it.
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+        user.password = hashedPassword;
+        await user.save();
+
+        // You can issue a new token if needed.
+        const newToken = jwt.sign({ id: user._id }, 'secret');
+
+        response.json({ token: newToken });
     } catch (error) {
-      response.status(500).json({ message: 'Internal server error' });
+        response.status(500).json({ message: error });
     }
-  };
+};

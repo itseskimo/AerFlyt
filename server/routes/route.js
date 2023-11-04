@@ -6,7 +6,7 @@ import { textExtraction, login, register ,changePassword} from '../controller/co
 const route = express.Router();
 
 
-route.post("/scan-image", textExtraction);
+route.post("/scan-passport", textExtraction);
 route.post("/login", login);
 route.post("/register", register);
 route.post("/change-password", changePassword);
