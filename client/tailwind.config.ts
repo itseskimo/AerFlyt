@@ -7,6 +7,12 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      xs:"460px",
+      md: "768px",
+      lg: "976px",    
+      xl: "1200px",
+    },
     extend: {
       backgroundImage: {
         'regal-purple': 'linear-gradient(90deg, #7214FF 0.09%, rgba(222, 204, 255, 0.70) 153.16%)',
