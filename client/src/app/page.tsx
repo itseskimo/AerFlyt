@@ -4,7 +4,7 @@ import HeroSection from "@/components/sections/Landing/HeroSection/HeroSection"
 
 export default function Home() {
 
-  const country =["/img/dubai.avif","/img/australia.avif","/img/egypt.avif","/img/thailand.avif","/img/country.png"]
+  const country =["/img/dubai.avif","/img/australia.avif","/img/egypt.avif","/img/thailand.avif","/img/country.png","/img/myanmar.png","/img/srilanka.png"]
   return (
     <>
       <Header />
