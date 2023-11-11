@@ -6,8 +6,8 @@ import VisaStepsHeader from '@/components/sections/Landing/VisaSteps/VisaStepsHe
 import VisaStepsDetails from "@/components/sections/Landing/VisaSteps/VisaStepsDetails"
 import CountryCard from '@/components/cards/CountryCard/CountryCard'
 
-const Home: React.FC = () => {
-  const country = ["/img/dubai.avif", "/img/australia.avif", "/img/egypt.avif", "/img/thailand.avif", "/img/country.png", "/img/myanmar.png", "/img/srilanka.png"];
+const Home = () => {
+  const country = [{image:"/img/dubai.avif"}, {image:"/img/australia.avif"}, {image:"/img/egypt.avif"},{image: "/img/thailand.avif"}, {image:"/img/country.png"}, {image:"/img/myanmar.png"}, {image:"/img/srilanka.png"}];
 
   return (
     <>
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
       <ContinentSelector />
       <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 sm:gap-8 mx-8">
         {country.map((item, idx) => (
-          <CountryCard key={idx} location={item} />
+          <CountryCard key={idx} {...item} />
         ))}
       </div>
       <VisaStepsHeader />
