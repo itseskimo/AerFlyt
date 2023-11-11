@@ -7,7 +7,7 @@ import VisaStepsHeader from '@/components/sections/Landing/VisaSteps/VisaStepsHe
 import VisaStepsDetails from "@/components/sections/Landing/VisaSteps/VisaStepsDetails"
 import CountryCard from '@/components/cards/CountryCard/CountryCard'
 import FAQList from "@/components/common/Faq/Faq"
-
+import AboutUs from "@/components/sections/Landing/AboutUs/AboutUs"
 
 
 
@@ -29,7 +29,7 @@ const Home = () => {
       </div>
       <VisaStepsHeader />
       <VisaStepsDetails />
-      
+
 
 
 
@@ -42,11 +42,13 @@ const Home = () => {
         <FAQList />
       </main>
 
+
+      <AboutUs />
+
       <div className="bg-[#7214ff0d] h-28 flex items-center justify-center font-bold text-[1.5rem]">
         <h1>Relax and start planning your trip 🎉</h1>
       </div>
       <Footer />
-
 
 
 
