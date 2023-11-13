@@ -4,27 +4,27 @@ const HeroSection = () => {
   return (
     <>
 
-      <main className="bg-[url(/img/Landing/LandingBg.jpg)] bg-no-repeat bg-cover py-28 ">
-        <div className="mx-8">
+      <main className="bg-[url(/img/Landing/LandingBg.jpg)] bg-no-repeat bg-cover pt-40 pb-16">
+        <div className="mx-4 sm:mx-8">
 
           <div className="flex flex-col gap-2 justify-center items-center cursor-default">
 
-            <div className="text-[3rem]  text-white font-bold text-center">
+            <div className="text-[1.5rem] sm:text-[2.35rem] lg:text-[3rem]  text-white font-bold text-center">
               <h1>Quick & Easy Visa Applications,</h1>
               <h2>Done in Minutes</h2>
             </div>
 
-            <p className="text-lg text-white">Complete your Visa application in 2 - 3 minutes</p>
+            <p className="text-[0.625rem] sm:text-[1rem] text-white">Complete your Visa application in 2 - 3 minutes</p>
 
-            <div className="flex items-center gap-5 mt-5">
-              <span className="bg-regal-purple shadow-elementShadow text-white py-[0.75rem] px-[2rem] rounded-[2rem] ">6.6K visas processed</span>
-              <span className="bg-regal-purple shadow-elementShadow text-white py-[0.75rem] px-[2rem] rounded-[2rem] ">30+ countries E-VISA</span>
-              <span className="bg-regal-purple shadow-elementShadow text-white py-[0.75rem] px-[2rem] rounded-[2rem] ">XX happy customers</span>
+            <div className="flex items-center gap-3 sm:gap-5 mt-5 text-[0.75rem] md:text-[1rem] flex-wrap justify-center">
+              <span className="bg-regal-purple shadow-elementShadow text-white py-[0.5rem] sm:py-[0.75rem] px-[1.25rem] sm:px-[2rem] rounded-[2rem] ">6.6K visas processed</span>
+              <span className="bg-regal-purple shadow-elementShadow text-white py-[0.5rem] sm:py-[0.75rem] px-[1.25rem] sm:px-[2rem] rounded-[2rem] ">30+ countries E-VISA</span>
+              <span className="bg-regal-purple shadow-elementShadow text-white py-[0.5rem] sm:py-[0.75rem] px-[1.25rem] sm:px-[2rem] rounded-[2rem] ">XX happy customers</span>
             </div>
 
 
-            <div className="flex items-center relative w-[60%] mt-16 mb-10">
-              <svg className="absolute  w-10 left-4 cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="flex items-center relative min-w-[300px] w-[60%] mt-16 mb-10">
+              <svg className="absolute w-5 sm:w-10 left-4 cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_987_3378)">
                   <path d="M17.5808 15.9434C18.8002 14.3748 19.5263 12.4037 19.5263 10.2631C19.5263 5.14724 15.379 1 10.2632 1C5.14725 1 1 5.14724 1 10.2631C1 15.379 5.14725 19.5262 10.2632 19.5262C12.4037 19.5262 14.3748 18.8002 15.9433 17.5809L21.0234 22.6609C21.4755 23.113 22.2087 23.113 22.6609 22.6609C23.113 22.2087 23.113 21.4755 22.6609 21.0234L17.5808 15.9434Z" stroke="black" strokeWidth="2" strokeLinecap="square" />
                 </g>
@@ -36,21 +36,12 @@ const HeroSection = () => {
               </svg>
 
               <input
-                className=" text-[1.25rem] w-full outline-none font-bold  py-[1rem] px-[4.5rem] rounded-[2rem] placeholder:text-black"
+                className="text-[0.75rem] sm:text-[0.875rem] md:text-[1.25rem] w-full outline-none font-semibold  py-[0.8rem] pl-[3.5rem] sm:pl-[4.5rem] pr-[1rem] rounded-[2rem] placeholder:text-black"
                 placeholder="Where to?"
               />
             </div>
           </div>
 
-
-
-
-
-
-
-          <div className="flex items-center justify-center">
-            <button className="bg-[#FFA500] text-[1.25rem] font-bold  py-[1rem] px-[4.5rem] rounded-[2rem]">Apply for E-Visa</button>
-          </div>
 
 
         </div>
@@ -90,3 +81,9 @@ export default HeroSection
 
               </div>
             </div> */}
+
+
+
+          //   <div className="flex items-center justify-center">
+          //   <button className="bg-[#FFA500] text-[0.75rem] sm:text-[0.875rem] md:text-[1.25rem] font-bold  py-[0.8rem] px-[4.5rem] rounded-[2rem]">Apply for E-Visa</button>
+          // </div>
