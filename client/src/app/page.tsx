@@ -5,6 +5,7 @@ import HeroSection from "@/components/sections/Landing/HeroSection/HeroSection"
 import Footer from '@/components/common/Footer/Footer'
 import VisaStepsHeader from '@/components/sections/Landing/VisaSteps/VisaStepsHeader'
 import VisaStepsDetails from "@/components/sections/Landing/VisaSteps/VisaStepsDetails"
+import VisaStepsDetailsMobile from "@/components/sections/Landing/VisaSteps/VisaStepsDetailsMobile"
 import CountryCard from '@/components/cards/CountryCard/CountryCard'
 import FaqsSection from "@/components/sections/Landing/FaqsSection/FaqsSection"
 import Layout from "@/components/layout/layout"
@@ -20,7 +21,7 @@ const Home = () => {
       <Navbar />
       <HeroSection />
       <ContinentSelector />
-      
+
       <Layout>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 sm:gap-8">
           {country.map((item, idx) => (
@@ -33,6 +34,7 @@ const Home = () => {
 
       <Layout>
         <VisaStepsDetails />
+        <VisaStepsDetailsMobile />
         <FaqsSection />
       </Layout>
 

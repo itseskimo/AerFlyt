@@ -6,7 +6,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className='mx-8'>
+    <div className='mx-4 sm:mx-8'>
       {children}
     </div>
   );
