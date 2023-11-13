@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <div className='w-full fixed top-0 left-0 z-10'>
-        <header className={`flex   items-center gap-1 justify-center bg-[#222222] text-white py-2 transition-all duration-500  w-full text-[0.7rem] md:text-[1rem] ${!scrolling ? 'opacity-100' : 'opacity-0 hidden'}`}>
+        <header className={`flex   items-center gap-1 justify-center bg-[#222222] text-white py-2 transition-all duration-500  w-full text-[0.6rem] sm:text-[0.7rem] md:text-[1rem] ${!scrolling ? 'opacity-100' : 'opacity-0 hidden'}`}>
           <span className="text-[#D0BCFF]">"20% OFF</span>
           <span> when you book VISA for</span>
           <span className="text-[#D0BCFF]">2+ travelers!</span>
@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
 
 
 
-      <header className={`flex z-10  items-center gap-1 justify-center bg-[#222222] text-white py-2 transition-all duration-500 fixed top-[62px] md:top-[78px] left-0 w-full text-[0.7rem] md:text-[1rem] ${scrolling ? 'opacity-100' : 'opacity-0'}`}>
+      <header className={`flex z-10  items-center gap-1 justify-center bg-[#222222] text-white py-2 transition-all duration-500 fixed top-[62px] md:top-[78px] left-0 w-full text-[0.6rem] sm:text-[0.7rem] md:text-[1rem] ${scrolling ? 'opacity-100' : 'opacity-0'}`}>
         <span className="text-[#D0BCFF]">"20% OFF</span>
         <span> when you book VISA for</span>
         <span className="text-[#D0BCFF]">2+ travelers!</span>
