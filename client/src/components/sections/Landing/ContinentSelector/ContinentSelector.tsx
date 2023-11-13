@@ -3,7 +3,7 @@ import React from 'react'
 const ContinentSelector = () => {
     return (
         <div className="relative bg-visaBlue h-[8.875rem] mb-24">
-
+            
 
             <section className="absolute top-[90%] bg-visaBlue p-6 left-[50%] w-[calc(100%-2rem)]  rounded-[1.25rem]  -translate-y-[50%] -translate-x-[50%]">
                 <div className=" bg-white  rounded-[1.25rem] flex items-center justify-between  p-6">
