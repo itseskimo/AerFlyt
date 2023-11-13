@@ -2,7 +2,7 @@ import React from 'react'
 
 const VisaStepsDetails = () => {
   return (
-    <main className="grid grid-cols-[1fr,80px,1fr] px-10">
+    <main className="grid grid-cols-[1fr,80px,1fr] ">
 
         <aside className="flex flex-col gap-8">
 
