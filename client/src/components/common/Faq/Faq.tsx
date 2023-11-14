@@ -14,7 +14,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ id, question, answer, isOpen, toggleF
     <div onClick={() => toggleFAQ(id)} className={` ${isOpen && 'bg-[#F8FAFA]'} w-full p-[1rem] border-[1px] border-solid border-transparent border-b-slate-300	cursor-pointer transition-all	duration-500 ease-in`}>
 
       <div className="flex items-center justify-between ">
-        <h6 className='text-[1.25rem] font-semibold'>{question}</h6>
+        <h6 className='text-[0.875rem] md:text-[1.25rem] font-semibold'>{question}</h6>
 
         <svg className={`${isOpen && 'rotate-180'} mr-4 transition-all duration-300`} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M14.5555 4.77778L7.99999 10.9691L1.44443 4.77778" stroke="#6B7684" strokeWidth="1.22222" className="select-none pointer-events-none transition-all ease-in"
@@ -23,7 +23,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ id, question, answer, isOpen, toggleF
       </div>
 
       <div className={`${isOpen ? 'max-h-[300px]' : 'max-h-0'} overflow-hidden transition-all duration-500	 ease-in`} >
-        <p className=' mt-2 '>{answer}</p>
+        <p className=' mt-2 text-[0.65rem] md:text-[1rem]'>{answer}</p>
       </div>
 
     </div>

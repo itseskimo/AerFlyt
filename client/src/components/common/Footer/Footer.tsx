@@ -2,9 +2,9 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className="bg-[#F2F4F4] grid grid-cols-3 py-12 px-8">
+        <footer className="bg-[#F2F4F4] grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-6 py-12 px-4 sm:px-8">
 
-            <section className="flex flex-col gap-6">
+            <section className="flex flex-col gap-6 col-start-1 col-end-[-1] md:col-start-1 md:col-end-1 text-[0.875rem] md:text-[1rem]">
                 <h1>dsd</h1>
                 <p className="text-[#A9ACAC]">Aerviz is the dsajs askcas  akcaks ask ka sa casc as ka</p>
 
@@ -46,32 +46,32 @@ const Footer = () => {
             </section>
 
 
-            <ul className="flex flex-col gap-6">
-                <li className="text-[1.5rem] font-semibold">VISA available for</li>
-                <li className="text-[#5C5F5F]">Asia</li>
-                <li className="text-[#5C5F5F]">Africa</li>
-                <li className="text-[#5C5F5F]">Australia</li>
-                <li className="text-visaBlue">Request a country</li>
+            <ul className="flex flex-col gap-6 col-start-2 col-end-2 row-start-2 row-end-2 md:row-start-1 md:row-end-1 md:col-start-2 md:col-end-2">
+                <li className="text-[1.25rem] md:text-[1.5rem] font-semibold">VISA available for</li>
+                <li className="text-[#5C5F5F] text-[0.875rem] md:text-[1rem]">Asia</li>
+                <li className="text-[#5C5F5F] text-[0.875rem] md:text-[1rem]">Africa</li>
+                <li className="text-[#5C5F5F] text-[0.875rem] md:text-[1rem]">Australia</li>
+                <li className="text-visaBlue text-[0.875rem] md:text-[1rem]">Request a country</li>
             </ul>
 
-            <ul className="flex flex-col gap-6">
-                <li className="text-[1.5rem] font-semibold">Contact</li>
+            <ul className="flex flex-col gap-6 col-start-1 col-end-1 row-start-2 row-end-2 md:row-start-1 md:row-end-1 md:col-start-3 md:col-end-3">
+                <li className="text-[1.25rem] md:text-[1.5rem] font-semibold">Contact</li>
 
-                <li className="text-[#5C5F5F] flex gap-4 items-center">
+                <li className="text-[#5C5F5F] flex gap-4 items-center text-[0.875rem] md:text-[1rem]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M16.666 3.33301H3.33268C2.41602 3.33301 1.67435 4.08301 1.67435 4.99967L1.66602 14.9997C1.66602 15.9163 2.41602 16.6663 3.33268 16.6663H16.666C17.5827 16.6663 18.3327 15.9163 18.3327 14.9997V4.99967C18.3327 4.08301 17.5827 3.33301 16.666 3.33301ZM16.666 6.66634L9.99935 10.833L3.33268 6.66634V4.99967L9.99935 9.16634L16.666 4.99967V6.66634Z" fill="#5C5F5F" />
                     </svg>
                     xyz@aerviz.com
                 </li>
 
-                <li className="text-[#5C5F5F] flex gap-4 items-center">
+                <li className="text-[#5C5F5F] flex gap-4 items-center text-[0.875rem] md:text-[1rem]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M16.625 17.5C14.8889 17.5 13.1736 17.1214 11.4792 16.3642C9.78472 15.6069 8.24306 14.5342 6.85417 13.1458C5.46528 11.7569 4.3925 10.2153 3.63583 8.52083C2.87917 6.82639 2.50056 5.11111 2.5 3.375C2.5 3.125 2.58333 2.91667 2.75 2.75C2.91667 2.58333 3.125 2.5 3.375 2.5H6.75C6.94444 2.5 7.11806 2.56611 7.27083 2.69833C7.42361 2.83056 7.51389 2.98667 7.54167 3.16667L8.08333 6.08333C8.11111 6.30556 8.10417 6.49306 8.0625 6.64583C8.02083 6.79861 7.94444 6.93056 7.83333 7.04167L5.8125 9.08333C6.09028 9.59722 6.42 10.0936 6.80167 10.5725C7.18333 11.0514 7.60361 11.5133 8.0625 11.9583C8.49306 12.3889 8.94444 12.7883 9.41667 13.1567C9.88889 13.525 10.3889 13.8617 10.9167 14.1667L12.875 12.2083C13 12.0833 13.1633 11.9894 13.365 11.9267C13.5667 11.8639 13.7644 11.8467 13.9583 11.875L16.8333 12.4583C17.0278 12.5139 17.1875 12.6147 17.3125 12.7608C17.4375 12.9069 17.5 13.07 17.5 13.25V16.625C17.5 16.875 17.4167 17.0833 17.25 17.25C17.0833 17.4167 16.875 17.5 16.625 17.5Z" fill="#5C5F5F" />
                     </svg>
                     +91 821-1233-124
                 </li>
 
-                <li className="text-[#5C5F5F] flex gap-4 items-center">
+                <li className="text-[#5C5F5F] flex gap-4 items-center text-[0.875rem] md:text-[1rem]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M9.99935 9.58366C9.44681 9.58366 8.91691 9.36417 8.52621 8.97346C8.13551 8.58276 7.91602 8.05286 7.91602 7.50033C7.91602 6.94779 8.13551 6.41789 8.52621 6.02719C8.91691 5.63649 9.44681 5.41699 9.99935 5.41699C10.5519 5.41699 11.0818 5.63649 11.4725 6.02719C11.8632 6.41789 12.0827 6.94779 12.0827 7.50033C12.0827 7.77391 12.0288 8.04482 11.9241 8.29758C11.8194 8.55034 11.6659 8.78001 11.4725 8.97346C11.279 9.16692 11.0494 9.32038 10.7966 9.42508C10.5438 9.52977 10.2729 9.58366 9.99935 9.58366ZM9.99935 1.66699C8.45225 1.66699 6.96852 2.28157 5.87456 3.37554C4.7806 4.4695 4.16602 5.95323 4.16602 7.50033C4.16602 11.8753 9.99935 18.3337 9.99935 18.3337C9.99935 18.3337 15.8327 11.8753 15.8327 7.50033C15.8327 5.95323 15.2181 4.4695 14.1241 3.37554C13.0302 2.28157 11.5464 1.66699 9.99935 1.66699Z" fill="#5C5F5F" />
                     </svg>
