@@ -6,7 +6,7 @@ const page = () => {
         <>
         <Navbar/>
         <main className="  flex items-center justify-center">
-            <div className="shadow-authshadow w-[70%] py-10 my-10 flex flex-col gap-8 items-center ">
+            <div className="shadow-authshadow w-[70%] py-10 my-40 flex flex-col gap-8 items-center ">
 
                 <h1 className="text-[2rem] text-visaBlue font-bold flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="188" height="12" viewBox="0 0 188 12" fill="none">
