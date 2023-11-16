@@ -23,7 +23,7 @@ const HeroSection = () => {
             </div>
 
 
-            <div className="flex items-center relative min-w-[300px] w-[60%] mt-16 mb-10">
+            <div className="flex items-center relative min-w-[300px] w-[60%] mt-16 mb-10" id='mainInput'>
               <svg className="absolute w-5 sm:w-10 left-4 cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_987_3378)">
                   <path d="M17.5808 15.9434C18.8002 14.3748 19.5263 12.4037 19.5263 10.2631C19.5263 5.14724 15.379 1 10.2632 1C5.14725 1 1 5.14724 1 10.2631C1 15.379 5.14725 19.5262 10.2632 19.5262C12.4037 19.5262 14.3748 18.8002 15.9433 17.5809L21.0234 22.6609C21.4755 23.113 22.2087 23.113 22.6609 22.6609C23.113 22.2087 23.113 21.4755 22.6609 21.0234L17.5808 15.9434Z" stroke="black" strokeWidth="2" strokeLinecap="square" />

@@ -6,10 +6,18 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
+      // Replace 'yourDivId' with the actual id of your HTML div
+      const targetDiv = document.getElementById('mainInput');
+
+      if (targetDiv) {
+        const { top } = targetDiv.getBoundingClientRect();
+
+        // Adjust the value (30 in this case) based on your requirement
+        if (top > 60) {
+          setScrolling(false);
+        } else {
+          setScrolling(true);
+        }
       }
     };
 
@@ -18,7 +26,8 @@ const Navbar: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, []); // Empty dependency array to run the effect only once
+
 
   return (
     <>
