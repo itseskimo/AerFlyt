@@ -10,7 +10,7 @@ import CountryCard from '@/components/cards/CountryCard/CountryCard'
 import FaqsSection from "@/components/sections/Landing/FaqsSection/FaqsSection"
 import Layout from "@/components/layout/layout"
 import ReviewSlider from '@/components/sliders/reviewSlider'
-
+import WhyChooseUs from "@/components/common/WhyChooseUs/WhyChooseUs"
 
 
 const Home = () => {
@@ -36,8 +36,9 @@ const Home = () => {
         <VisaStepsDetails />
         <VisaStepsDetailsMobile />
         <FaqsSection />
-        <ReviewSlider/>
+        <ReviewSlider />
       </Layout>
+      <WhyChooseUs />
 
       <div className="bg-[#7214ff0d] h-28 flex items-center justify-center font-bold text-[1.5rem]">
         <h1>Relax and start planning your trip 🎉</h1>
