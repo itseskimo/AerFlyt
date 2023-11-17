@@ -45,9 +45,10 @@ box-sizing: border-box;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    width: 30px;
-    height: 90px;
-    border-radius: 5px;
+    border: 1px solid #00000033    ;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     background-color: white;
   }
   
