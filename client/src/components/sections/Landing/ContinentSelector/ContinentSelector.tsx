@@ -28,8 +28,8 @@ const ContinentSelector = () => {
 
 
                     {
-                        continentIMGS.map((item) => (
-                            <section className="flex flex-col items-center justify-center">
+                        continentIMGS.map((item,idx) => (
+                            <section key={idx} className="flex flex-col items-center justify-center">
                                 <img src={item.location} className='h-10 w-10' />
                                 <h1 className="text-[1.25rem] font-semibold">{item.name}</h1>
                             </section>

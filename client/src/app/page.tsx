@@ -9,7 +9,7 @@ import VisaStepsDetailsMobile from "@/components/sections/Landing/VisaSteps/Visa
 import CountryCard from '@/components/cards/CountryCard/CountryCard'
 import FaqsSection from "@/components/sections/Landing/FaqsSection/FaqsSection"
 import Layout from "@/components/layout/layout"
-
+import ReviewSlider from '@/components/sliders/reviewSlider'
 
 
 
@@ -36,6 +36,7 @@ const Home = () => {
         <VisaStepsDetails />
         <VisaStepsDetailsMobile />
         <FaqsSection />
+        <ReviewSlider/>
       </Layout>
 
       <div className="bg-[#7214ff0d] h-28 flex items-center justify-center font-bold text-[1.5rem]">
