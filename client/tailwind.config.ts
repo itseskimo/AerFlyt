@@ -21,6 +21,8 @@ const config: Config = {
       },
 
       boxShadow: {
+        paymentShadow:'0px 4px 25px 0px rgba(0, 0, 0, 0.20)',
+        paymentSubmitShadow:'0px 2px 6px 0px rgba(0, 0, 0, 0.15)',
         reviewShadow:'0px 4px 10px 0px rgba(0, 0, 0, 0.10)',
         navshadow: ' 0px 3px 16px 0px rgba(0, 0, 0, 0.25)',
         authshadow: '0px 2px 12px 0px rgba(0, 0, 0, 0.10)',
