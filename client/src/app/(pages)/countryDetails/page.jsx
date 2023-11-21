@@ -8,9 +8,48 @@ import CountryTitle from '@/components/sections/Country/CountryTitle/CountryTitl
 import VisaStepsDetailsMobile from '@/components/sections/Landing/VisaSteps/VisaStepsDetailsMobile'
 import VisaProvidersComparison from '@/components/sections/Country/VisaProvidersComparison/VisaProvidersComparison'
 import CountryVisaSteps from '@/components/sections/Country/CountryVisaSteps/CountryVisaSteps'
+
 const page = () => {
+  const documents = [
+    {
+      title: 'Passport',
+      subtitle: 'subtext',
+      image: ''
+    },
+    {
+      title: 'Photograph',
+      subtitle: 'subtext',
+      image: ''
+    },
+    {
+      title: 'Flight Ticket',
+      subtitle: 'subtext',
+      image: ''
+    },
+    {
+      title: 'Accomodation',
+      subtitle: 'subtext',
+      image: ''
+    },
+    {
+      title: 'Invitation Copy',
+      subtitle: 'subtext',
+      image: ''
+    },
+    {
+      title: 'Cover Letter',
+      subtitle: 'subtext',
+      image: ''
+    },
+    {
+      title: 'Travel Itinerary',
+      subtitle: 'subtext',
+      image: ''
+    },
+  ]
   return (
     <>
+      <Navbar />
       <Layout>
         <CountryBanner />
 
@@ -20,9 +59,27 @@ const page = () => {
             <CountryTitle />
             <VisaProvidersComparison />
             <CountryVisaSteps />
+            <section className='my-8 '>
+              <h5 className='text-[1.5rem] font-bold pb-6'>Documents required</h5>
+              <div className='grid grid-cols-2 gap-10'>
+                {documents.map((doc, idx) => (
+                  <div key={idx} className='shadow-docsreqShadow p-5 grid-cols-[40px,auto]'>
+                    <div dangerouslySetInnerHTML={{ __html: doc?.image }} />
+                    <ul className='justify-self-end'>
+                      <li className='text-[1.25rem] font-semibold'>{doc.title}</li>
+                      <li className='text-[0.75rem] text-[#A9ACAC]'>{doc.subtitle}</li>
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+
+            </section>
           </aside>
 
-          <aside className='shadow-navshadow justify-self-end h-max w-max rounded-[1.5rem] flex flex-col gap-6 items-center  sticky top-0 p-6'>
+          <aside className='shadow-navshadow  bg-white justify-self-end h-max w-max rounded-[1.5rem] flex flex-col gap-6 items-center  sticky top-32 p-5 mt-[-150px] '>
 
             <main className='rounded-[1.5rem]  overflow-hidden shadow-paymentShadow border-[2px] border-solid border-visaBlue'>
 
@@ -49,7 +106,7 @@ const page = () => {
               </section>
 
 
-              <section className='grid grid-cols-2 gap-6 p-4'>
+              <section className='grid grid-cols-2 gap-4 p-4'>
 
                 <span className='flex items-center gap-2 justify-self-start text-[#5C5F5F]'>
                   <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
@@ -99,9 +156,9 @@ const page = () => {
 
               <span className='text-[1.5rem] font-bold justify-self-end flex items-center gap-2'>4,000
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <g clip-path="url(#clip0_2105_6177)">
-                    <path d="M9.99935 18.3337C14.6017 18.3337 18.3327 14.6027 18.3327 10.0003C18.3327 5.39795 14.6017 1.66699 9.99935 1.66699C5.39698 1.66699 1.66602 5.39795 1.66602 10.0003C1.66602 14.6027 5.39698 18.3337 9.99935 18.3337Z" stroke="#222222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M10 13.3337V10.0003M10 6.66699H10.0083" stroke="#222222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <g clipPath="url(#clip0_2105_6177)">
+                    <path d="M9.99935 18.3337C14.6017 18.3337 18.3327 14.6027 18.3327 10.0003C18.3327 5.39795 14.6017 1.66699 9.99935 1.66699C5.39698 1.66699 1.66602 5.39795 1.66602 10.0003C1.66602 14.6027 5.39698 18.3337 9.99935 18.3337Z" stroke="#222222" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M10 13.3337V10.0003M10 6.66699H10.0083" stroke="#222222" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </g>
                   <defs>
                     <clipPath id="clip0_2105_6177">

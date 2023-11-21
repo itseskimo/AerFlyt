@@ -53,7 +53,7 @@ const VisaStepsDetails = () => {
       </aside>
 
 
-      <section className="w-[1px] justify-self-center bg-[#222222] relative rounded-md flex flex-col items-center justify-between h-[82%]">
+      <section className="w-[1px] justify-self-center bg-[#222222] relative rounded-md flex flex-col items-center justify-between h-[80%]">
         <label className="w-full h-[50%]  bg-visaBlue absolute rounded-md"></label>
         <span className="w-10 h-10 bg-visaBlue rounded-[50%] "></span>
         <span className="w-10 h-10 border-solid border-[0.5px] border-[#7A757F] bg-white z-[1] rounded-[50%] flex items-center justify-center font-semibold"><span>2</span></span>

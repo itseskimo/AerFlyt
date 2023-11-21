@@ -31,24 +31,26 @@ const Home = () => {
       </Layout>
 
       <VisaStepsHeader />
+    
 
       <Layout>
         <VisaStepsDetails />
         <VisaStepsDetailsMobile />
-        <FaqsSection />
-        <ReviewSlider />
       </Layout>
-      <WhyChooseUs />
-
-      <div className="bg-[#7214ff0d] h-28 flex items-center justify-center font-bold text-[1.5rem]">
+      <div className="bg-[#7214ff0d] h-28 my-12 flex items-center justify-center font-bold text-[1.5rem]">
         <h1>Relax and start planning your trip 🎉</h1>
       </div>
+      <WhyChooseUs />
+
+      <Layout>
+        <ReviewSlider />
+      </Layout>
+
+
+      <Layout>
+        <FaqsSection />
+      </Layout>
       <Footer />
-
-
-
-
-
     </>
   );
 };
