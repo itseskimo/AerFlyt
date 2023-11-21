@@ -17,6 +17,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'regal-purple': 'linear-gradient(90deg, #7214FF 0.09%, rgba(222, 204, 255, 0.70) 153.16%)',
+
       },
 
       boxShadow: {
