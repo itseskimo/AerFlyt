@@ -26,7 +26,7 @@ const VisaStepsDetails = () => {
 
 
         <div className="flex items-center justify-center">
-          <img src="/img/landing/aeroplane.png" className="w-[80%]" />
+          <img src="/img/landing/cloudstorage.png" className="w-[50%] h-[90%]" />
         </div>
 
 
@@ -64,7 +64,7 @@ const VisaStepsDetails = () => {
       <aside className="flex flex-col gap-8">
 
         <div className="flex items-center justify-center">
-          <img src="/img/landing/Passport&Suitcase.png" className="w-[80%]" />
+          <img src="/img/landing/womantravel.png" className="w-[80%]" />
         </div>
 
 
@@ -94,7 +94,7 @@ const VisaStepsDetails = () => {
 
 
         <div className="flex items-center justify-center">
-          <img src="/img/landing/mail&button.svg" className="w-[80%] h-[250px]" />
+          <img src="/img/landing/airtickets.png" className="w-[50%] h-full" />
         </div>
 
       </aside>

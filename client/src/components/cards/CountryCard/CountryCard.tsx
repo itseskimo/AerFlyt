@@ -14,7 +14,7 @@ const CountryCard = ({ image }: CountryCardProps) => {
             {/* <span className="bg-[#222222] rounded-r-xl absolute top-10 text-white font-semibold px-5 py-2">Visa on arrival</span> */}
             {/* <span className="bg-[#F2F4F4] rounded-r-xl absolute top-10 font-semibold px-5 py-2">No VISA required</span> */}
 
-            <div className="p-5 ">
+            <div className="p-4 ">
                 <img src={image} alt="Dubai Image" className="h-[14rem] w-full object-cover rounded-3xl" />
 
                 <div className="pt-4">
