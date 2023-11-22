@@ -10,7 +10,7 @@ const HeroSection = () => {
           <div className="flex flex-col gap-2 justify-center items-center cursor-default">
 
             <div className="text-[1.5rem] sm:text-[2.35rem] lg:text-[3rem]  text-white font-bold text-center">
-              <h1>Your Fastest and Easiest Visa Experience - <br></br> On Time, Guarantee!</h1>
+              <h1>Your Fastest and Easiest Visa Experience <br></br> On Time, Guarantee!</h1>
             </div>
 
             <h2 className="text-[0.625rem] sm:text-[1rem] text-white">Complete your Visa application in just 2 minutes</h2>
