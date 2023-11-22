@@ -13,20 +13,29 @@ const page = () => {
 
   return (
     <>
-      <Navbar headerShow={false}/>
+      <Navbar headerShow={false} />
+      <CountryBanner />
+
       <Layout>
-        <CountryBanner />
 
-        <main className='grid grid-cols-1 md:grid-cols-[auto,500px] gap-20'>
+        <main className='grid grid-cols-1 md:grid-cols-[auto,490px] gap-20'>
 
-          <aside className=' flex flex-col gap-6'>
-            <CountryTitle />
+          <aside className=' flex flex-col gap-6 mt-[-60px]'>
+
+            <header className={`flex   items-center gap-1 justify-center bg-[#222222] text-white py-2 transition-all duration-500  w-full text-[0.6rem] sm:text-[0.7rem] md:text-[1rem] rounded-[1.25rem] border-solid border-[#7A757F] border-[0.5px]`}>
+              <span className="text-[#D0BCFF]">"20% OFF</span>
+              <span> when you book VISA for</span>
+              <span className="text-[#D0BCFF]">2+ travelers!</span>
+              <span>Save big on your journey now." </span>
+            </header>           
+            
+             <CountryTitle />
             <VisaProvidersComparison />
             <CountryVisaSteps />
             <DocsRequired />
           </aside>
 
-          <aside className='shadow-navshadow  bg-white  h-max  rounded-[1.5rem] flex flex-col gap-6   sticky top-32 p-5 mt-[-150px] '>
+          <aside className='shadow-navshadow  bg-white  h-max  rounded-[1.5rem] flex flex-col gap-6   sticky top-14 p-5 mt-[-250px] '>
 
             <main className='rounded-[1.5rem]  overflow-hidden shadow-paymentShadow border-[2px] border-solid border-visaBlue'>
 
@@ -48,7 +57,7 @@ const page = () => {
                 </span>
 
                 <span className='text-[0.875rem] text-left'>Single Entry</span>
-                <span className='text-[0.875rem] text-right'>(includes all govt. related fees)</span>
+                <span className='text-[0.875rem] justify-self-end whitespace-nowrap'>(includes all govt. related fees)</span>
 
               </section>
 
@@ -79,7 +88,7 @@ const page = () => {
                 <span className='text-[1.25rem] font-bold justify-self-end'>30 days</span>
 
 
-                <span className='flex items-center gap-2 justify-self-start text-[#5C5F5F]'>
+                <span className='flex items-center gap-2 justify-self-start text-[#5C5F5F] whitespace-nowrap'>
                   <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
                     <path d="M12.4993 18.3337C9.37935 18.3337 3.16602 19.8937 3.16602 23.0003V25.3337H21.8327V23.0003C21.8327 19.8937 15.6193 18.3337 12.4993 18.3337ZM6.28602 22.667C7.40602 21.8937 10.1127 21.0003 12.4993 21.0003C14.886 21.0003 17.5927 21.8937 18.7127 22.667H6.28602ZM12.4993 16.0003C15.0727 16.0003 17.166 13.907 17.166 11.3337C17.166 8.76033 15.0727 6.66699 12.4993 6.66699C9.92602 6.66699 7.83268 8.76033 7.83268 11.3337C7.83268 13.907 9.92602 16.0003 12.4993 16.0003ZM12.4993 9.33366C13.606 9.33366 14.4993 10.227 14.4993 11.3337C14.4993 12.4403 13.606 13.3337 12.4993 13.3337C11.3927 13.3337 10.4993 12.4403 10.4993 11.3337C10.4993 10.227 11.3927 9.33366 12.4993 9.33366ZM21.886 18.4137C23.4327 19.5337 24.4993 21.027 24.4993 23.0003V25.3337H29.8327V23.0003C29.8327 20.307 25.166 18.7737 21.886 18.4137ZM20.4993 16.0003C23.0727 16.0003 25.166 13.907 25.166 11.3337C25.166 8.76033 23.0727 6.66699 20.4993 6.66699C19.7793 6.66699 19.1127 6.84033 18.4993 7.13366C19.3393 8.32033 19.8327 9.77366 19.8327 11.3337C19.8327 12.8937 19.3393 14.347 18.4993 15.5337C19.1127 15.827 19.7793 16.0003 20.4993 16.0003Z" fill="#222222" />
                   </svg>
@@ -116,7 +125,7 @@ const page = () => {
               </span>
 
               <span className='text-[0.875rem] text-left'>Single Entry</span>
-              <span className='text-[0.875rem] text-right'>(includes all govt. related fees)</span>
+              <span className='text-[0.875rem] justify-items-end whitespace-nowrap '>(includes all govt. related fees)</span>
 
             </section>
             <button className='py-[0.75rem] px-[4.5rem]  bg-[#FFA500] text-[1.5rem] font-bold rounded-[2rem] shadow-paymentSubmitShadow'>Apply for E-Visa</button>
