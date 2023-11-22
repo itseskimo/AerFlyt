@@ -1,6 +1,8 @@
 import React from 'react'
 
 const Blogs = () => {
+
+    
     return (
         <section className='my-12'>
             <div className='mb-6 flex items-center justify-between'>
