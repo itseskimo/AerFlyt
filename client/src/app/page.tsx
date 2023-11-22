@@ -22,7 +22,7 @@ const Home = () => {
       <HeroSection />
       <ContinentSelector />
       <Layout>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 sm:gap-8">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 sm:gap-8">
           {country.map((item, idx) => (
             <CountryCard key={idx} {...item} />
           ))}

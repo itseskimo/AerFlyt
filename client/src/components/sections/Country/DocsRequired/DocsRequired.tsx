@@ -4,7 +4,7 @@ import { documents } from '@/config/docsreqjson'
 const DocsRequired = () => {
     return (
         <section className='my-8 '>
-            <h5 className='text-[1.5rem] font-bold pb-6'>Documents required</h5>
+            <h5 className= 'text-[1.25rem] md:text-[1.5rem] font-bold pb-6'>Documents required</h5>
             <div className='grid grid-cols-2 gap-8'>
                 {documents.map((doc, idx) => (
                     <div key={idx} className='shadow-docsreqShadow p-5 grid grid-cols-[70px,auto] gap-4 items-center'>
@@ -14,7 +14,7 @@ const DocsRequired = () => {
                         </ul>
 
                         <ul className=' '>
-                            <li className='text-[1.25rem] font-semibold'>{doc.title}</li>
+                            <li className='md:text-[1.25rem] font-semibold'>{doc.title}</li>
                             <li className='text-[0.75rem] text-[#A9ACAC]'>{doc.subtitle}</li>
                         </ul>
                     </div>

@@ -10,10 +10,10 @@ const HeroSection = () => {
           <div className="flex flex-col gap-2 justify-center items-center cursor-default">
 
             <div className="text-[1.5rem] sm:text-[2.35rem] lg:text-[3rem]  text-white font-bold text-center">
-              <h1>Quick & Easy Visa Applications,<br></br> Done in Minutes</h1>
+              <h1>Your Fastest and Easiest Visa Experience - <br></br> On Time, Guarantee!</h1>
             </div>
 
-            <h2 className="text-[0.625rem] sm:text-[1rem] text-white">Complete your Visa application in 2 - 3 minutes</h2>
+            <h2 className="text-[0.625rem] sm:text-[1rem] text-white">Complete your Visa application in just 2 minutes</h2>
 
             <div className="flex items-center gap-3 sm:gap-5 mt-5 text-[0.75rem] md:text-[1rem] flex-wrap justify-center">
               <span className="bg-regal-purple shadow-elementShadow text-white py-[0.5rem] sm:py-[0.75rem] px-[1.25rem] sm:px-[2rem] rounded-[2rem] ">6.6K visas processed</span>

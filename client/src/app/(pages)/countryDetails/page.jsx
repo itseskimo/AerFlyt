@@ -5,11 +5,10 @@ import FaqsSection from '@/components/sections/Landing/FaqsSection/FaqsSection'
 import Layout from '@/components/layout/layout'
 import CountryBanner from '@/components/sections/Country/CountryBanner/CountryBanner/'
 import CountryTitle from '@/components/sections/Country/CountryTitle/CountryTitle'
-import VisaStepsDetailsMobile from '@/components/sections/Landing/VisaSteps/VisaStepsDetailsMobile'
 import VisaProvidersComparison from '@/components/sections/Country/VisaProvidersComparison/VisaProvidersComparison'
 import CountryVisaSteps from '@/components/sections/Country/CountryVisaSteps/CountryVisaSteps'
 import DocsRequired from '@/components/sections/Country/DocsRequired/DocsRequired'
-import Blogs from '@/components/sections/Country/Blogs/Blogs'
+
 const page = () => {
 
   return (
@@ -18,7 +17,7 @@ const page = () => {
       <Layout>
         <CountryBanner />
 
-        <main className='grid grid-cols-2 gap-20'>
+        <main className='grid grid-cols-1 md:grid-cols-2 gap-20'>
 
           <aside className=' flex flex-col gap-6'>
             <CountryTitle />
@@ -27,7 +26,7 @@ const page = () => {
             <DocsRequired />
           </aside>
 
-          <aside className='shadow-navshadow  bg-white justify-self-end h-max w-max rounded-[1.5rem] flex flex-col gap-6 items-center  sticky top-32 p-5 mt-[-150px] '>
+          <aside className='shadow-navshadow  bg-white  h-max  rounded-[1.5rem] flex flex-col gap-6   sticky top-32 p-5 mt-[-150px] '>
 
             <main className='rounded-[1.5rem]  overflow-hidden shadow-paymentShadow border-[2px] border-solid border-visaBlue'>
 
@@ -120,12 +119,11 @@ const page = () => {
               <span className='text-[0.875rem] text-right'>(includes all govt. related fees)</span>
 
             </section>
-            <button className='py-[1rem] px-[4.5rem]  bg-[#FFA500] text-[1.5rem] font-bold rounded-[2rem] shadow-paymentSubmitShadow'>Apply for E-Visa</button>
+            <button className='py-[0.75rem] px-[4.5rem]  bg-[#FFA500] text-[1.5rem] font-bold rounded-[2rem] shadow-paymentSubmitShadow'>Apply for E-Visa</button>
           </aside>
 
 
         </main>
-        <Blogs />
 
         <FaqsSection />
       </Layout>
