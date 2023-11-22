@@ -71,10 +71,10 @@ const page = () => {
                 </section>
                 <p className='text-[#A9ACAC]'>OR</p>
 
-                <section className='flex flex-col gap-1'>
+                <section className='flex flex-col gap-1 max-w-[305px] '>
                     <label className='#5C5F5F'>Mobile Number</label>
-                    <div className='relative border-[#A9ACAC] border-solid border-[1px] flex items-center rounded-xl bg-white overflow-hidden'>
-                        <input placeholder='999-9999-999' className='py-3 pr-4 pl-[100px] ml-[10px] outline-none ' />
+                    <div className='relative border-[#A9ACAC] border-solid border-[1px] flex items-center rounded-xl bg-white overflow-hidden '>
+                        <input placeholder='999-9999-999' className='py-3 pr-4 pl-[100px] ml-[10px] outline-none w-' />
                         <span className='absolute px-2 flex items-center gap-2 border-[#A9ACAC] border-solid border-r-[1px] h-[calc(100%+12px)]'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
 
