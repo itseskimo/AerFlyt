@@ -10,6 +10,7 @@ import CountryVisaSteps from '@/components/sections/Country/CountryVisaSteps/Cou
 import DocsRequired from '@/components/sections/Country/DocsRequired/DocsRequired'
 import CountryHeader from '@/components/sections/Country/CountryHeader/CountryHeader'
 import PaymentSection from '@/components/sections/Country/PaymentSection/PaymentSection'
+import ReviewSlider from '@/components/sliders/reviewSlider'
 
 const page = () => {
 
@@ -21,7 +22,6 @@ const page = () => {
       <Layout>
 
         <main className='grid grid-cols-1 lg:grid-cols-[auto,450px] gap-12 xl:gap-20'>
-
           <aside className=' flex flex-col gap-6 lg:mt-[-60px] order-2 lg:order-1'>
             <CountryHeader />
             <CountryTitle />
@@ -31,12 +31,13 @@ const page = () => {
           </aside>
 
           <PaymentSection />
-
-
         </main>
 
+        <ReviewSlider />
         <FaqsSection />
+        
       </Layout>
+
       <Footer />
     </>
   )
