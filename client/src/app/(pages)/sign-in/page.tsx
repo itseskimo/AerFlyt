@@ -1,15 +1,17 @@
 import React from 'react'
 import Navbar from '@/components/common/Navbar/Navbar'
 import Footer from '@/components/common/Footer/Footer'
+import Layout from '@/components/layout/layout'
 const page = () => {
     return (
         <>
         <Navbar headerShow={false}/>
+        <Layout>
         <main className="  flex items-center justify-center">
-            <div className="shadow-authshadow w-[70%] py-10 my-40 flex flex-col gap-8 items-center ">
+            <div className="shadow-authshadow  w-full lg:w-[70%] py-10 px-5 my-20 flex flex-col gap-8 items-center rounded-[2rem]">
 
-                <h1 className="text-[2rem] text-visaBlue font-bold flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="188" height="12" viewBox="0 0 188 12" fill="none">
+                <h1 className="text-[1.5rem] xl:text-[2rem] text-center text-visaBlue font-bold flex items-center gap-5">
+                    <svg className=' hidden sm:block' xmlns="http://www.w3.org/2000/svg" width="188" height="12" viewBox="0 0 188 12" fill="none">
                         <path d="M1 5C0.447715 5 0 5.44772 0 6C0 6.55228 0.447715 7 1 7V5ZM187.773 6L182 0.226497L176.227 6L182 11.7735L187.773 6ZM1 7H182V5H1V7Z" fill="url(#paint0_linear_1085_38667)" />
                         <defs>
                             <linearGradient id="paint0_linear_1085_38667" x1="1" y1="6.5" x2="216.5" y2="6.49999" gradientUnits="userSpaceOnUse">
@@ -21,7 +23,7 @@ const page = () => {
 
                     Welcome to Aerviz
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="188" height="12" viewBox="0 0 188 12" fill="none">
+                    <svg className=' hidden sm:block' xmlns="http://www.w3.org/2000/svg" width="188" height="12" viewBox="0 0 188 12" fill="none">
                         <path d="M0.226497 6L6 11.7735L11.7735 6L6 0.226497L0.226497 6ZM187 7C187.552 7 188 6.55228 188 6C188 5.44772 187.552 5 187 5V7ZM6 7H187V5H6V7Z" fill="url(#paint0_linear_1085_38672)" />
                         <defs>
                             <linearGradient id="paint0_linear_1085_38672" x1="6.16822" y1="6.5" x2="227" y2="6.49999" gradientUnits="userSpaceOnUse">
@@ -33,12 +35,12 @@ const page = () => {
                 </h1>
 
 
-                <h2 className="text-[1.125rem] text-[#5C5F5F]">Receive real-time VISA status updates right in your
-                    WhatsApp inbox</h2>
-                <h3 className="text-visaBlue">Single-tap Sign in via</h3>
+                <h5 className="text-[1rem] md:text-[1.125rem] text-[#5C5F5F] text-center">Receive real-time VISA status updates right in your
+                    WhatsApp inbox</h5>
+                <h6 className="text-visaBlue ">Single-tap Sign in via</h6>
 
                 <section className='flex items-center gap-5'>
-                    <span className='w-20 h-[1px] bg-[#A9ACAC]'></span>
+                    <span className='w-20 h-[1px] bg-[#A9ACAC]  hidden sm:block'></span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="60" viewBox="0 0 96 60" fill="none">
                         <rect x="0.5" y="0.5" width="95" height="59" rx="15.5" stroke="#7A757F" strokeOpacity="0.4" />
                         <path d="M61.9857 31.4119C61.9857 30.154 61.8836 29.2361 61.6627 28.2842H47.2988V33.9617H55.7301C55.5602 35.3726 54.6423 37.4975 52.6024 38.9253L52.5738 39.1154L57.1154 42.6337L57.43 42.6651C60.3198 39.9962 61.9857 36.0695 61.9857 31.4119Z" fill="#4285F4" />
@@ -64,7 +66,7 @@ const page = () => {
                             </linearGradient>
                         </defs>
                     </svg>
-                    <span className='w-[80px] h-[1px] bg-[#A9ACAC]'></span>
+                    <span className='w-[80px] h-[1px] bg-[#A9ACAC] hidden sm:block'></span>
 
                 </section>
                 <p className='text-[#A9ACAC]'>OR</p>
@@ -121,9 +123,10 @@ const page = () => {
                     <span className='text-visaBlue text-[0.75rem]'>Please ensure this number is linked to your WhatsApp</span>
                 </section>
 
-                <button className='bg-visaBlue py-[0.65rem] rounded-[2rem] px-[3rem] text-white text-[1.25rem] font-bold'>Login via mobile</button>
+                <button className='bg-visaBlue py-[0.65rem] rounded-[2rem] px-[3rem] text-white text-[1rem] md:text-[1.25rem] font-bold'>Login via mobile</button>
             </div>
         </main>
+        </Layout>
         <Footer/>
         </>
     )
