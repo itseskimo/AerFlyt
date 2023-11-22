@@ -20,7 +20,7 @@ const page = () => {
 
         <main className='grid grid-cols-1 md:grid-cols-[auto,450px] gap-20'>
 
-          <aside className=' flex flex-col gap-6 mt-[-60px]'>
+          <aside className=' flex flex-col gap-6 mt-[-60px] order-2 md:order-1'>
 
             <header className={`flex   items-center gap-1 justify-center bg-[#222222] text-white py-2 transition-all duration-500  w-full text-[0.6rem] sm:text-[0.7rem] md:text-[1rem] rounded-[1.25rem] border-solid border-[#7A757F] border-[0.5px]`}>
               <span className="text-[#D0BCFF]">"20% OFF</span>
@@ -35,7 +35,7 @@ const page = () => {
             <DocsRequired />
           </aside>
 
-          <aside className='shadow-navshadow  bg-white  h-max  rounded-[1.5rem] flex flex-col gap-6   sticky top-14 p-5 mt-[-250px] '>
+          <aside className='shadow-navshadow order-1 md:order-2 bg-white  h-max  rounded-[1.5rem] flex flex-col gap-6   md:sticky top-14 p-5 md:mt-[-250px] '>
 
             <main className='rounded-[1.5rem]  overflow-hidden shadow-paymentShadow border-[2px] border-solid border-visaBlue'>
 
