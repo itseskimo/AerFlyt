@@ -5,7 +5,7 @@ const DocsRequired = () => {
     return (
         <section className='my-8 '>
             <h5 className= 'text-[1.25rem] md:text-[1.5rem] font-bold pb-6'>Documents required</h5>
-            <div className='grid grid-cols-2  gap-8'>
+            <div className='grid grid-cols-1 sm:grid-cols-2  gap-8'>
                 {documents.map((doc, idx) => (
                     <div key={idx} className='shadow-docsreqShadow p-5 grid grid-cols-[70px,auto] gap-4 items-center'>
 

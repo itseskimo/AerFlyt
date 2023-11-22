@@ -4,8 +4,8 @@ const VisaProvidersComparison = () => {
     return (
         <section className=' flex flex-col gap-6'>
             <article>
-                <h6 className='text-[1.5rem] font-bold'>Comparing with other VISA providesrs</h6>
-                <h6 className='text-[#A9ACAC]'>Add your sub text over here</h6>
+                <h6 className='text-[1.25rem] lg:text-[1.5rem] font-bold'>Comparing with other VISA providers</h6>
+                <h6 className='text-[#A9ACAC] text-[0.875rem] lg:text-[1rem]'>Add your sub text over here</h6>
             </article>
 
             <div className='border-solid border-[1px] border-[#5C5F5F] py-6 px-4 rounded-[1.25rem]' >
