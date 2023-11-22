@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar headerShow={true}/>
       <HeroSection />
       <ContinentSelector />
       <Layout>

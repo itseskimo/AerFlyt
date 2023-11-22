@@ -13,11 +13,11 @@ const page = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar headerShow={false}/>
       <Layout>
         <CountryBanner />
 
-        <main className='grid grid-cols-1 md:grid-cols-2 gap-20'>
+        <main className='grid grid-cols-1 md:grid-cols-[auto,500px] gap-20'>
 
           <aside className=' flex flex-col gap-6'>
             <CountryTitle />
@@ -30,7 +30,7 @@ const page = () => {
 
             <main className='rounded-[1.5rem]  overflow-hidden shadow-paymentShadow border-[2px] border-solid border-visaBlue'>
 
-              <section className='grid grid-cols-2 bg-visaBlue text-white p-4 '>
+              <section className='grid grid-cols-2 bg-visaBlue text-white py-3 px-4 '>
                 <span className='text-[1.5rem] font-bold text-left'>30 Days</span>
 
                 <span className='text-[1.5rem] font-bold justify-self-end flex items-center gap-2'>4,000
@@ -55,12 +55,12 @@ const page = () => {
 
               <section className='grid grid-cols-2 gap-4 p-4'>
 
-                <span className='flex items-center gap-2 justify-self-start text-[#5C5F5F]'>
+                {/* <span className='flex items-center gap-2 justify-self-start text-[#5C5F5F]'>
                   <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
                     <path d="M20.1667 5C22.9956 5 25.7088 6.12381 27.7091 8.12419C29.7095 10.1246 30.8333 12.8377 30.8333 15.6667C30.8333 18.4956 29.7095 21.2088 27.7091 23.2091C25.7088 25.2095 22.9956 26.3333 20.1667 26.3333C17.3377 26.3333 14.6246 25.2095 12.6242 23.2091C10.6238 21.2088 9.5 18.4956 9.5 15.6667C9.5 12.8377 10.6238 10.1246 12.6242 8.12419C14.6246 6.12381 17.3377 5 20.1667 5ZM20.1667 7.66667C18.0449 7.66667 16.0101 8.50952 14.5098 10.0098C13.0095 11.5101 12.1667 13.5449 12.1667 15.6667C12.1667 17.7884 13.0095 19.8232 14.5098 21.3235C16.0101 22.8238 18.0449 23.6667 20.1667 23.6667C22.2884 23.6667 24.3232 22.8238 25.8235 21.3235C27.3238 19.8232 28.1667 17.7884 28.1667 15.6667C28.1667 13.5449 27.3238 11.5101 25.8235 10.0098C24.3232 8.50952 22.2884 7.66667 20.1667 7.66667ZM18.8333 10.3333H20.8333V15.3733L23.94 18.48L22.5267 19.8933L18.8333 16.2V10.3333ZM2.83333 23.6667C2.47971 23.6667 2.14057 23.5262 1.89052 23.2761C1.64048 23.0261 1.5 22.687 1.5 22.3333C1.5 21.9797 1.64048 21.6406 1.89052 21.3905C2.14057 21.1405 2.47971 21 2.83333 21H7.94C8.35333 21.9467 8.88667 22.84 9.5 23.6667H2.83333ZM4.16667 17C3.81304 17 3.47391 16.8595 3.22386 16.6095C2.97381 16.3594 2.83333 16.0203 2.83333 15.6667C2.83333 15.313 2.97381 14.9739 3.22386 14.7239C3.47391 14.4738 3.81304 14.3333 4.16667 14.3333H6.9L6.83333 15.6667L6.9 17H4.16667ZM5.5 10.3333C5.14638 10.3333 4.80724 10.1929 4.55719 9.94281C4.30714 9.69276 4.16667 9.35362 4.16667 9C4.16667 8.64638 4.30714 8.30724 4.55719 8.05719C4.80724 7.80714 5.14638 7.66667 5.5 7.66667H9.5C8.88667 8.49333 8.35333 9.38667 7.94 10.3333H5.5Z" fill="#222222" />
                   </svg>
                   VISA type</span>
-                <span className='text-[1.25rem] font-bold justify-self-end'>E-VISA</span>
+                <span className='text-[1.25rem] font-bold justify-self-end'>E-VISA</span> */}
 
                 <span className='flex items-center gap-2 justify-self-start text-[#5C5F5F]'>
                   <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
