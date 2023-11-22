@@ -8,45 +8,10 @@ import CountryTitle from '@/components/sections/Country/CountryTitle/CountryTitl
 import VisaStepsDetailsMobile from '@/components/sections/Landing/VisaSteps/VisaStepsDetailsMobile'
 import VisaProvidersComparison from '@/components/sections/Country/VisaProvidersComparison/VisaProvidersComparison'
 import CountryVisaSteps from '@/components/sections/Country/CountryVisaSteps/CountryVisaSteps'
-
+import DocsRequired from '@/components/sections/Country/DocsRequired/DocsRequired'
+import Blogs from '@/components/sections/Country/Blogs/Blogs'
 const page = () => {
-  const documents = [
-    {
-      title: 'Passport',
-      subtitle: 'subtext',
-      image: ''
-    },
-    {
-      title: 'Photograph',
-      subtitle: 'subtext',
-      image: ''
-    },
-    {
-      title: 'Flight Ticket',
-      subtitle: 'subtext',
-      image: ''
-    },
-    {
-      title: 'Accomodation',
-      subtitle: 'subtext',
-      image: ''
-    },
-    {
-      title: 'Invitation Copy',
-      subtitle: 'subtext',
-      image: ''
-    },
-    {
-      title: 'Cover Letter',
-      subtitle: 'subtext',
-      image: ''
-    },
-    {
-      title: 'Travel Itinerary',
-      subtitle: 'subtext',
-      image: ''
-    },
-  ]
+
   return (
     <>
       <Navbar />
@@ -59,24 +24,7 @@ const page = () => {
             <CountryTitle />
             <VisaProvidersComparison />
             <CountryVisaSteps />
-            <section className='my-8 '>
-              <h5 className='text-[1.5rem] font-bold pb-6'>Documents required</h5>
-              <div className='grid grid-cols-2 gap-10'>
-                {documents.map((doc, idx) => (
-                  <div key={idx} className='shadow-docsreqShadow p-5 grid-cols-[40px,auto]'>
-                    <div dangerouslySetInnerHTML={{ __html: doc?.image }} />
-                    <ul className='justify-self-end'>
-                      <li className='text-[1.25rem] font-semibold'>{doc.title}</li>
-                      <li className='text-[0.75rem] text-[#A9ACAC]'>{doc.subtitle}</li>
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section>
-
-            </section>
+            <DocsRequired />
           </aside>
 
           <aside className='shadow-navshadow  bg-white justify-self-end h-max w-max rounded-[1.5rem] flex flex-col gap-6 items-center  sticky top-32 p-5 mt-[-150px] '>
@@ -177,6 +125,8 @@ const page = () => {
 
 
         </main>
+        <Blogs />
+
         <FaqsSection />
       </Layout>
       <Footer />
