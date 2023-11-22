@@ -18,7 +18,7 @@ const page = () => {
 
       <Layout>
 
-        <main className='grid grid-cols-1 md:grid-cols-[auto,490px] gap-20'>
+        <main className='grid grid-cols-1 md:grid-cols-[auto,450px] gap-20'>
 
           <aside className=' flex flex-col gap-6 mt-[-60px]'>
 
@@ -125,7 +125,7 @@ const page = () => {
               </span>
 
               <span className='text-[0.875rem] text-left'>Single Entry</span>
-              <span className='text-[0.875rem] justify-items-end whitespace-nowrap '>(includes all govt. related fees)</span>
+              <span className='text-[0.875rem] justify-self-end whitespace-nowrap '>(includes all govt. related fees)</span>
 
             </section>
             <button className='py-[0.75rem] px-[4.5rem]  bg-[#FFA500] text-[1.5rem] font-bold rounded-[2rem] shadow-paymentSubmitShadow'>Apply for E-Visa</button>
