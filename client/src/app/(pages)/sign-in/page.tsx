@@ -4,7 +4,7 @@ import Footer from '@/components/common/Footer/Footer'
 const page = () => {
     return (
         <>
-        <Navbar/>
+        <Navbar headerShow={false}/>
         <main className="  flex items-center justify-center">
             <div className="shadow-authshadow w-[70%] py-10 my-40 flex flex-col gap-8 items-center ">
 
