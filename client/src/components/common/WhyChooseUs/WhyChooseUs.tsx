@@ -15,7 +15,7 @@ const WhyChooseUs = () => {
         <section className='hidden md:grid grid-cols-[1fr,20px,1fr,20px,1fr] items-center gap-6'>
           {WhyChooseUsData.slice(0, 5).map((item, idx) => {
 
-            if (idx % 2 === 0) {
+            if (idx % 2 !== 0) {
               return <div key={idx} className='h-[100px] w-[1px] bg-[#D1D9E2] rotate-[18deg] justify-self-end'></div>
             }
 
@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
           {WhyChooseUsDataMobile.map((item, idx) => {
             if (idx === WhyChooseUsDataMobile.length - 1) {
               return <ul key={idx} className='flex flex-col gap-4 items-center text-center sm:col-start-1 sm:col-end-3'>
-              <li className='md:text-[1.25rem] text-white '>{item.title}</li>
+                <li className='md:text-[1.25rem] text-white '>{item.title}</li>
                 <li className='' dangerouslySetInnerHTML={item?.image ? { __html: item.image } : undefined} />
                 <li className='text-[1.25rem] md:text-[1.5rem] font-bold text-[#FFA500] flex items-center gap-2' dangerouslySetInnerHTML={item?.subtitle ? { __html: item.subtitle } : undefined} />
                 <li className='text-[0.75rem] md:text-[0.875rem] text-[#A9ACAC] text-center'>{item.description}</li>
