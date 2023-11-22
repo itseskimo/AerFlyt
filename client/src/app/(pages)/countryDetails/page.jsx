@@ -19,10 +19,11 @@ const page = () => {
 
       <Layout>
 
-        <main className='grid grid-cols-1 lg:grid-cols-[auto,450px] gap-20'>
+        <main className='grid grid-cols-1 lg:grid-cols-[auto,450px] gap-12 xl:gap-20'>
 
-          <aside className=' flex flex-col gap-6 mt-[-60px] order-2 lg:order-1'>
-            <CountryHeader />
+          <aside className=' flex flex-col gap-6 lg:mt-[-60px] order-2 lg:order-1'>
+          <CountryHeader />
+
             <CountryTitle />
             <VisaProvidersComparison />
             <CountryVisaSteps />
