@@ -11,7 +11,7 @@ interface FAQItemProps {
 
 const FAQItem: React.FC<FAQItemProps> = ({ id, question, answer, isOpen, toggleFAQ }) => {
   return (
-    <div onClick={() => toggleFAQ(id)} className={` ${isOpen && 'bg-[#F8FAFA]'} w-full p-[1rem] border-[1px] border-solid border-transparent border-b-slate-300	cursor-pointer transition-all	duration-500 ease-in`}>
+    <div onClick={() => toggleFAQ(id)} className={` ${isOpen && 'bg-[#F8FAFA]'} w-full p-[1.25rem] border-[1px] border-solid border-transparent border-b-slate-300	cursor-pointer transition-all	duration-500 ease-in`}>
 
       <div className="flex items-center justify-between ">
         <h6 className='text-[0.875rem] md:text-[1.25rem] font-semibold'>{question}</h6>

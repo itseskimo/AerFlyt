@@ -1,4 +1,4 @@
-'use client'
+
 import Navbar from "@/components/common/Navbar/Navbar"
 import ContinentSelector from "@/components/sections/Landing/ContinentSelector/ContinentSelector"
 import HeroSection from "@/components/sections/Landing/HeroSection/HeroSection"
@@ -21,7 +21,6 @@ const Home = () => {
       <Navbar />
       <HeroSection />
       <ContinentSelector />
-
       <Layout>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 sm:gap-8">
           {country.map((item, idx) => (
@@ -31,25 +30,23 @@ const Home = () => {
       </Layout>
 
       <VisaStepsHeader />
-    
 
       <Layout>
         <VisaStepsDetails />
         <VisaStepsDetailsMobile />
       </Layout>
-      <div className="bg-[#7214ff0d] h-28 my-12 flex items-center justify-center font-bold text-[1.5rem]">
-        <h1>Relax and start planning your trip 🎉</h1>
+
+      <div className="bg-[#7214ff0d] py-10 my-12 flex items-center justify-center font-bold text-[1.25rem] md:text-[1.5rem]">
+        <h6>Relax and start planning your trip 🎉</h6>
       </div>
+
       <WhyChooseUs />
 
       <Layout>
         <ReviewSlider />
-      </Layout>
-
-
-      <Layout>
         <FaqsSection />
       </Layout>
+
       <Footer />
     </>
   );

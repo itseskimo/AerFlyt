@@ -63,16 +63,14 @@ const reviewSlider = () => {
 
           {
             [0, 1, 2, 3, 4, 5].map((item, idx) => (
-              <section key={idx} className='embla__slide  mr-[15px] lg:mr-[25px]  my-[10px] shadow-reviewShadow w-[40%] min-w-[400px] h-[30%] p-5 flex flex-col gap-3'>
+              <section key={idx} className='embla__slide  mr-[15px] lg:mr-[25px]  my-[10px] shadow-reviewShadow w-full sm:w-[60%] lg:w-[40%] min-w-[400px] p-5 flex flex-col gap-3'>
 
                 <div className='relative h-[12.5rem] bg-black'>
-
                   <svg className='absolute cursor-pointer top-[50%] left-[50%]  -translate-y-[50%] -translate-x-[50%]' xmlns="http://www.w3.org/2000/svg" width="65" height="64" viewBox="0 0 65 64" fill="none">
                     <g opacity="0.7">
                       <path fillRule="evenodd" clipRule="evenodd" d="M5.83398 31.9997C5.83398 17.2721 17.7731 5.33301 32.5007 5.33301C39.5731 5.33301 46.3559 8.14253 51.3569 13.1435C56.3578 18.1445 59.1673 24.9273 59.1673 31.9997C59.1673 46.7273 47.2283 58.6664 32.5007 58.6664C17.7731 58.6664 5.83398 46.7273 5.83398 31.9997ZM27.6208 43.4131L43.1674 33.7064C43.7492 33.3338 44.1011 32.6906 44.1011 31.9997C44.1011 31.3089 43.7492 30.6656 43.1674 30.2931L27.5674 20.5864C26.953 20.199 26.1768 20.1752 25.5398 20.5241C24.9028 20.8731 24.505 21.54 24.5008 22.2664V41.7331C24.4922 42.4771 24.8973 43.1644 25.5524 43.5171C26.2075 43.8699 27.0043 43.8298 27.6208 43.4131Z" fill="white" />
                     </g>
                   </svg>
-
                 </div>
 
                 <article className='flex flex-col gap-2'>

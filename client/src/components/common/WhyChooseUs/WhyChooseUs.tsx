@@ -6,8 +6,8 @@ const WhyChooseUs = () => {
   return (
     <>
       <div className='bg-black py-6 text-center'>
-        <h4 className='text-white font-bold text-[1.5rem]'>Why Choose us?</h4>
-        <h5 className='text-[#A9ACAC]'>VISA processing services at your fingertips</h5>
+        <h4 className='text-white font-bold text-[1.25rem] md:text-[1.5rem] '>Why Choose us?</h4>
+        <h5 className='text-[#A9ACAC] text-[0.875rem] md:text-[1rem]'>VISA processing services at your fingertips</h5>
       </div>
 
       <main className='bg-[#191C1D] pb-16 md:py-16 px-8'>
