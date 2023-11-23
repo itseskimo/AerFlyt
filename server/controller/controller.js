@@ -5,6 +5,8 @@ import CountryModel from '../model/country.js';
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
+
+
 export const textExtraction = async (request, response) => {
     const CREDENTIALS = JSON.parse(JSON.stringify(
         {
@@ -211,6 +213,8 @@ export const addCountry = async (request, response) => {
     await newCountry.save();
     response.json({ message: "Country added successfully" });
 }
+
+
 export const deleteCountry = async (request, response) => {
 
     const { id } = request.params;
@@ -227,6 +231,28 @@ export const deleteCountry = async (request, response) => {
         response.status(500).json({ message: 'Internal Server Error' });
     }
 
+}
+
+
+export const updateCountry = async (request, response) => {
+    const { id } = request.params;
+    const { name, price, expected_date, image } = request.body;
+
+    try {
+        const updatedCountry = await CountryModel.findByIdAndUpdate(
+            id,
+            { name, price, expected_date, image },
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedCountry) {
+            return response.status(404).json({ message: 'Country not found' });
+        }
+
+        response.json({ message: 'Country updated successfully' });
+    } catch (error) {
+        response.status(500).json({ message: 'Internal Server Error' });
+    }
 }
 
 
