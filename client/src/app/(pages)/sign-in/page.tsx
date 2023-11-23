@@ -79,7 +79,7 @@ const page = () => {
                         </section>
                         <p className='text-[#A9ACAC]'>OR</p>
 
-                        <section className='flex flex-col  gap-1  w-full '>
+                        <section className='flex flex-col  gap-1'>
                             <label className='#5C5F5F '>Mobile Number</label>
                             <div className='relative  border-[#A9ACAC] border-solid border-[1px] flex items-center rounded-xl bg-white overflow-hidden '>
                                 <input placeholder='999-9999-999' className='py-3 pr-4 pl-[100px] ml-[10px] outline-none w-' />

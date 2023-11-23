@@ -1,6 +1,7 @@
 import * as vision from '@google-cloud/vision';
 import Passport from '../model/passport.js';
 import UserModel from '../model/auth.js';
+import CountryModel from '../model/country.js';
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
@@ -195,3 +196,46 @@ export const changePassword = async (request, response) => {
         response.status(500).json({ message: error });
     }
 };
+
+
+export const addCountry = async (request, response) => {
+
+    const { name, price, expected_date, image } = request.body;
+    const countryExists = await CountryModel.findOne({ name });
+
+    if (countryExists) {
+        return response.status(400).json({ message: "Country already exists" });
+    }
+
+    const newCountry = new CountryModel({ name, price, expected_date, image });
+    await newCountry.save();
+    response.json({ message: "Country added successfully" });
+}
+export const deleteCountry = async (request, response) => {
+
+    const { id } = request.params;
+
+    try {
+        const deletedCountry = await CountryModel.findByIdAndDelete(id);
+
+        if (!deletedCountry) {
+            return response.status(404).json({ message: 'Country not found' });
+        }
+
+        response.json({ message: 'Country deleted successfully' });
+    } catch (error) {
+        response.status(500).json({ message: 'Internal Server Error' });
+    }
+
+}
+
+
+
+export const getAllCountries = async (request, response) => {
+    try {
+        const countries = await CountryModel.find();
+        response.json(countries);
+    } catch (error) {
+        response.status(500).json({ message: "Internal Server Error" });
+    }
+}
