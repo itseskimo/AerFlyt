@@ -202,18 +202,24 @@ export const changePassword = async (request, response) => {
 
 
 export const addCountry = async (request, response) => {
+    const { name, price, expected_date } = request.body;
 
-    const { name, price, expected_date, image } = request.body;
+    // Check if the file was uploaded successfully
+    if (!request.file) {
+        return response.status(400).json({ message: 'No file uploaded' });
+    }
+
     const countryExists = await CountryModel.findOne({ name });
 
     if (countryExists) {
-        return response.status(400).json({ message: "Country already exists" });
+        return response.status(400).json({ message: 'Country already exists' });
     }
-   
-    const newCountry = new CountryModel({ name, price, expected_date, image });
+
+    // Assuming request.file.filename contains the name of the uploaded file
+    const newCountry = new CountryModel({ name, price, expected_date, image: request.file.filename });
     await newCountry.save();
-    response.json({ message: "Country added successfully" });
-}
+    response.json({ message: 'Country added successfully' });
+};
 
 
 export const deleteCountry = async (request, response) => {
