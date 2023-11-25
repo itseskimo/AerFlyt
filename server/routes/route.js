@@ -1,8 +1,19 @@
+import { textExtraction, login, register, changePassword, addCountry, getAllCountries, deleteCountry, updateCountry } from '../controller/controller.js';
 import express from 'express';
 import multer from 'multer';
-const upload = multer({ dest: 'uploads/' });
 
-import { textExtraction, login, register, changePassword, addCountry, getAllCountries, deleteCountry ,updateCountry} from '../controller/controller.js';
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/'); // Specify the destination folder for uploaded files
+    },
+    filename: (req, file, cb) => {
+        const filename = 'file_' + Date.now() + '_' + file.originalname;
+        cb(null, filename);
+    },
+});
+
+const upload = multer({ storage });
+
 
 const route = express.Router();
 
