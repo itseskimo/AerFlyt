@@ -128,7 +128,7 @@ export const textExtraction = async (request, response) => {
 
 export const login = async (request, response) => {
 
-    const { username, password } = request.body;
+const { username, password } = request.body;
 
     const user = await UserModel.findOne({ username });
 
@@ -158,6 +158,7 @@ export const register = async (request, response) => {
         return response.status(400).json({ message: "Username already exists" });
     }
 
+    
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new UserModel({ username, password: hashedPassword });
     await newUser.save();
