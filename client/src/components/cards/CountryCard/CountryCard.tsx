@@ -1,4 +1,5 @@
-
+"use client"
+import { useRouter } from "next/navigation";
 type CountryCardProps = {
     image: string;
 };
@@ -6,16 +7,16 @@ type CountryCardProps = {
 
 const CountryCard = ({ image }: CountryCardProps) => {
 
-
+const router = useRouter()
     return (
-        <div className="relative border-solid border-[0.5px] border-gray-400 rounded-[2rem] flex flex-col overflow-hidden">
+        <div  className="relative border-solid border-[0.5px] border-gray-400 rounded-[2rem] flex flex-col overflow-hidden">
 
             <span className="bg-visaBlue rounded-r-xl absolute top-10 text-white font-semibold px-5 py-2">Visa in 1 week</span>
             {/* <span className="bg-[#222222] rounded-r-xl absolute top-10 text-white font-semibold px-5 py-2">Visa on arrival</span> */}
             {/* <span className="bg-[#F2F4F4] rounded-r-xl absolute top-10 font-semibold px-5 py-2">No VISA required</span> */}
 
             <div className="p-4 ">
-                <img src={image} alt="Dubai Image" className="h-[16rem] lg:h-[14rem] w-full object-cover rounded-3xl" />
+                <img src={image} onClick={()=>router.push('/countryDetails')} alt="Dubai Image" className="cursor-pointer h-[16rem] lg:h-[14rem] w-full object-cover rounded-3xl" />
 
                 <div className="pt-4">
                     <h1 className="text-[1.5rem] font-bold">Singapore</h1>
@@ -38,7 +39,7 @@ const CountryCard = ({ image }: CountryCardProps) => {
                 </div>
             </div>
 
-            <button className="bg-visaBlue text-white font-bold py-3">Apply for E-Visa</button>
+            <button className="bg-visaBlue text-white font-bold py-3" onClick={()=>router.push('/countryDetails')}>Apply for E-Visa</button>
         </div>
     )
 }

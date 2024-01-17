@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 
+import { useRouter } from "next/navigation";
 type HideHeaderProps = {
   headerShow: boolean;
 };
 
 const Navbar = ({ headerShow }: HideHeaderProps) => {
   const [scrolling, setScrolling] = useState<boolean>(false);
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +51,7 @@ const Navbar = ({ headerShow }: HideHeaderProps) => {
        
 
         <nav className={`flex items-center justify-between shadow-navshadow px-4 sm:px-8 w-full py-3 sm:py-4 transition-all duration-500 ${scrolling && 'bg-white'} ${!headerShow && 'bg-visaBlue'}`}>
-          <button className="bg-regal-purple py-[0.625rem] px-[1.125rem] text-white rounded-[2rem] text-[0.75rem] md:text-[1rem]">Aerviz</button>
+          <button onClick={()=>router.push('/')} className="bg-regal-purple py-[0.625rem] px-[1.125rem] text-white rounded-[2rem] text-[0.75rem] md:text-[1rem]">Aerviz</button>
 
 
           <div className={`flex items-center relative w-[30%] min-w-[12rem] rounded-[0.75rem] overflow-hidden border-solid border-[1px] border-visaBlue  ${scrolling ? 'opacity-100' : 'opacity-0 hidden'}`}>
@@ -71,7 +73,7 @@ const Navbar = ({ headerShow }: HideHeaderProps) => {
           </div>
 
 
-          <button className="bg-[#222222] py-[0.625rem] px-[1.125rem] rounded-md text-white text-[0.75rem] md:text-[1rem]">Login</button>
+          <button onClick={()=>router.push('/sign-in')} className="bg-[#222222] py-[0.625rem] px-[1.125rem] rounded-md text-white text-[0.75rem] md:text-[1rem]">Login</button>
         </nav>
       </div>
 
