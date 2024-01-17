@@ -14,7 +14,7 @@ import WhyChooseUs from "@/components/common/WhyChooseUs/WhyChooseUs"
 
 
 const Home = () => {
-  const country = [{ image: "/img/dubai.avif" }, { image: "/img/australia.avif" }, { image: "/img/egypt.avif" }, { image: "/img/thailand.avif" }, { image: "/img/country.png" }, { image: "/img/myanmar.png" }, { image: "/img/srilanka.png" }];
+  const country = [ { image: "/img/country.png" }, { image: "/img/myanmar.png" }, { image: "/img/srilanka.png" },{ image: "/img/country.png" }, { image: "/img/myanmar.png" }, { image: "/img/srilanka.png" }];
 
   return (
     <>
