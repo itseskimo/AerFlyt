@@ -2,6 +2,7 @@ import * as vision from '@google-cloud/vision';
 import Passport from '../model/passport.js';
 import UserModel from '../model/auth.js';
 import CountryModel from '../model/country.js';
+import DoctorModel from '../model/doctors.js';
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
@@ -128,7 +129,7 @@ export const textExtraction = async (request, response) => {
 
 export const login = async (request, response) => {
 
-const { username, password } = request.body;
+    const { username, password } = request.body;
 
     const user = await UserModel.findOne({ username });
 
@@ -158,7 +159,7 @@ export const register = async (request, response) => {
         return response.status(400).json({ message: "Username already exists" });
     }
 
-    
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new UserModel({ username, password: hashedPassword });
     await newUser.save();
@@ -267,9 +268,40 @@ export const updateCountry = async (request, response) => {
 export const getAllCountries = async (request, response) => {
     try {
         const countries = await CountryModel.find();
-        console.log(countries)
         response.json(countries);
     } catch (error) {
         response.status(500).json({ message: "Internal Server Error" });
     }
 }
+
+
+export const getAllDoctors = async (request, response) => {
+    try {
+        const { city } = request.body; // Assuming the city is sent in the request body
+
+        if (!city) {
+            return response.status(400).json({ message: "City parameter is missing" });
+        }
+
+        const regexPattern = new RegExp(`^${city}`, 'i');
+        const doctors = await DoctorModel.find({ city: { $regex: regexPattern } });
+
+        if (!doctors || doctors.length === 0) {
+            return response.status(404).json({ message: "No doctors found for the given city" });
+        }
+
+        response.json(doctors);
+    } catch (error) {
+        console.error(error);
+        response.status(500).json({ message: "Internal Server Error" });
+    }
+}
+
+
+export const insertDoctors = async (request, response) => {
+    const { city, expertise, name } = request.body;
+    const newCountry = new DoctorModel({ name, expertise, city });
+    await newCountry.save();
+    response.json({ message: 'DOCTOR added successfully' });
+};
+

@@ -1,4 +1,5 @@
 import { textExtraction, login, register, changePassword, addCountry, getAllCountries, deleteCountry, updateCountry } from '../controller/controller.js';
+import { getAllDoctors , insertDoctors} from '../controller/controller.js';
 import express from 'express';
 import multer from 'multer';
 
@@ -27,6 +28,10 @@ route.get("/countries-list", getAllCountries);
 route.post("/add-country", upload.single('image'), addCountry);
 route.delete("/delete-country/:id", deleteCountry);
 route.patch("/update-country/:id", updateCountry);
+
+route.post("/city-doctorslist", getAllDoctors);
+route.post("/insertdoctors", insertDoctors);
+
 
 
 
