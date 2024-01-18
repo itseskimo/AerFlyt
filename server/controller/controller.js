@@ -267,6 +267,7 @@ export const updateCountry = async (request, response) => {
 export const getAllCountries = async (request, response) => {
     try {
         const countries = await CountryModel.find();
+        console.log(countries)
         response.json(countries);
     } catch (error) {
         response.status(500).json({ message: "Internal Server Error" });
