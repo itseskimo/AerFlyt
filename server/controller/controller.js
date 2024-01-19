@@ -307,8 +307,8 @@ export const insertDoctors = async (request, response) => {
 };
 
 export const addReview = async (request, response) => {
-    const { name, designation, rating } = request.body;
-
+    const { name, designation, rating, quote } = request.body;
+console.log(request.body)
     // Check if the file was uploaded successfully
     if (!request.file) {
         return response.status(400).json({ message: 'No file uploaded' });
@@ -321,7 +321,7 @@ export const addReview = async (request, response) => {
     }
 
     // Assuming request.file.filename contains the name of the uploaded file
-    const newReview = new ReviewsModel({ name, designation, rating, quote: request.body['quote '], image: request.file.filename });
+    const newReview = new ReviewsModel({ name, designation, rating, quote , image: request.file.filename });
     await newReview.save();
     response.json({ message: 'Review added successfully' });
 };
