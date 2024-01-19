@@ -3,6 +3,7 @@ import Passport from '../model/passport.js';
 import UserModel from '../model/auth.js';
 import CountryModel from '../model/country.js';
 import DoctorModel from '../model/doctors.js';
+import ReviewsModel from '../model/review.js';
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
@@ -305,3 +306,32 @@ export const insertDoctors = async (request, response) => {
     response.json({ message: 'DOCTOR added successfully' });
 };
 
+export const addReview = async (request, response) => {
+    const { name, designation, rating } = request.body;
+
+    // Check if the file was uploaded successfully
+    if (!request.file) {
+        return response.status(400).json({ message: 'No file uploaded' });
+    }
+
+    const reviewExists = await ReviewsModel.findOne({ name });
+
+    if (reviewExists) {
+        return response.status(400).json({ message: 'Review already exists' });
+    }
+
+    // Assuming request.file.filename contains the name of the uploaded file
+    const newReview = new ReviewsModel({ name, designation, rating, quote: request.body['quote '], image: request.file.filename });
+    await newReview.save();
+    response.json({ message: 'Review added successfully' });
+};
+
+
+export const getAllReviews = async (request, response) => {
+    try {
+        const reviews = await DoctorModel.find();
+        response.json(reviews);
+    } catch (error) {
+        response.status(500).json({ message: "Internal Server Error" });
+    }
+}
