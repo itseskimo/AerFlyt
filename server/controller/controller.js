@@ -329,7 +329,7 @@ export const addReview = async (request, response) => {
 
 export const getAllReviews = async (request, response) => {
     try {
-        const reviews = await DoctorModel.find();
+        const reviews = await ReviewsModel.find();
         response.json(reviews);
     } catch (error) {
         response.status(500).json({ message: "Internal Server Error" });
