@@ -4,6 +4,7 @@ import UserModel from '../model/auth.js';
 import CountryModel from '../model/country.js';
 import DoctorModel from '../model/doctors.js';
 import ReviewsModel from '../model/review.js';
+import CalendarModel from '../model/calendar.js'
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
@@ -140,8 +141,6 @@ export const login = async (request, response) => {
             .json({ message: "Username or password is incorrect" });
     }
 
-
-
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
@@ -151,7 +150,7 @@ export const login = async (request, response) => {
     }
 
     const token = jwt.sign({ id: user._id }, "secret");
-    response.status(201).json({ token, name: username , role:user.role});
+    response.status(201).json({ token, name: username, role: user.role });
 }
 
 
@@ -164,12 +163,12 @@ export const register = async (request, response) => {
         return response.status(400).json({ message: "Username already exists" });
     }
 
-    if(!role){
+    if (!role) {
         return response.status(400).json({ message: "Please Select a Role!" })
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new UserModel({ username, password: hashedPassword , role});
+    const newUser = new UserModel({ username, password: hashedPassword, role });
     await newUser.save();
     response.status(201).json({ message: "User registered successfully" });
 }
@@ -187,8 +186,6 @@ export const changePassword = async (request, response) => {
         if (!user) {
             return response.status(404).json({ message: 'User not found' });
         }
-
-        
 
         const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
 
@@ -317,7 +314,7 @@ export const insertDoctors = async (request, response) => {
 
 export const addReview = async (request, response) => {
     const { name, designation, rating, quote } = request.body;
-console.log(request.body)
+
     // Check if the file was uploaded successfully
     if (!request.file) {
         return response.status(400).json({ message: 'No file uploaded' });
@@ -330,7 +327,7 @@ console.log(request.body)
     }
 
     // Assuming request.file.filename contains the name of the uploaded file
-    const newReview = new ReviewsModel({ name, designation, rating, quote , image: request.file.filename });
+    const newReview = new ReviewsModel({ name, designation, rating, quote, image: request.file.filename });
     await newReview.save();
     response.json({ message: 'Review added successfully' });
 };
@@ -344,3 +341,24 @@ export const getAllReviews = async (request, response) => {
         response.status(500).json({ message: "Internal Server Error" });
     }
 }
+
+
+export const addCalendar = async (request, response) => {
+    const { day, date, slots } = request.body;
+
+    const entryExists = await CalendarModel.findOne({ day, date });
+
+    if (entryExists) {
+        return response.status(400).json({ message: "Calendar entry already exists for the given day and date" });
+    }
+
+    const newEntry = new CalendarModel({ day, date, slots });
+
+    try {
+        await newEntry.save();
+        response.json({ message: 'Calendar entry added successfully' });
+    } catch (error) {
+        console.error('Error saving calendar entry:', error);
+        response.status(500).json({ message: 'Internal Server Error' });
+    }
+};
