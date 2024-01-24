@@ -130,7 +130,7 @@ export const textExtraction = async (request, response) => {
 
 export const login = async (request, response) => {
 
-    const { username, password , role} = request.body;
+    const { username, password } = request.body;
 
     const user = await UserModel.findOne({ username });
 
@@ -150,10 +150,6 @@ export const login = async (request, response) => {
             .json({ message: "Username or password is incorrect" });
     }
 
-
-    if(!role){
-        return response.status(400).json({ message: "Please Select a Role!" })
-    }
     const token = jwt.sign({ id: user._id }, "secret");
     response.json({ token, name: username });
 }
