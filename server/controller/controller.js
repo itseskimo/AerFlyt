@@ -130,7 +130,7 @@ export const textExtraction = async (request, response) => {
 
 export const login = async (request, response) => {
 
-    const { username, password } = request.body;
+    const { username, password , role} = request.body;
 
     const user = await UserModel.findOne({ username });
 
@@ -139,12 +139,20 @@ export const login = async (request, response) => {
             .status(400)
             .json({ message: "Username or password is incorrect" });
     }
+
+
+
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
         return response
             .status(400)
             .json({ message: "Username or password is incorrect" });
+    }
+
+
+    if(!role){
+        return response.status(400).json({ message: "Please Select a Role!" })
     }
     const token = jwt.sign({ id: user._id }, "secret");
     response.json({ token, name: username });
@@ -153,16 +161,19 @@ export const login = async (request, response) => {
 
 export const register = async (request, response) => {
 
-    const { username, password } = request.body;
+    const { username, password, role } = request.body;
     const user = await UserModel.findOne({ username });
 
     if (user) {
         return response.status(400).json({ message: "Username already exists" });
     }
 
+    if(!role){
+        return response.status(400).json({ message: "Please Select a Role!" })
+    }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new UserModel({ username, password: hashedPassword });
+    const newUser = new UserModel({ username, password: hashedPassword , role});
     await newUser.save();
     response.json({ message: "User registered successfully" });
 }
@@ -180,6 +191,8 @@ export const changePassword = async (request, response) => {
         if (!user) {
             return response.status(404).json({ message: 'User not found' });
         }
+
+        
 
         const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
 
