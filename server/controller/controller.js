@@ -343,16 +343,9 @@ export const getAllReviews = async (request, response) => {
 }
 
 
-export const addCalendar = async (request, response) => {
-    const { day, date, selectedSlots } = request.body;
+export const addCalendar = async (request, response) => {    
 
-    const entryExists = await CalendarModel.findOne({ day, date });
-
-    if (entryExists) {
-        return response.status(400).json({ message: "Calendar entry already exists for the given day and date" });
-    }
-
-    const newEntry = new CalendarModel({ day, date, slots:selectedSlots });
+    const newEntry = new CalendarModel({calendars:request.body});
 
     try {
         await newEntry.save();
