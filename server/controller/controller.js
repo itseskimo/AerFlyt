@@ -151,7 +151,7 @@ export const login = async (request, response) => {
     }
 
     const token = jwt.sign({ id: user._id }, "secret");
-    response.json({ token, name: username , role:user.role});
+    response.status(201).json({ token, name: username , role:user.role});
 }
 
 
@@ -171,7 +171,7 @@ export const register = async (request, response) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new UserModel({ username, password: hashedPassword , role});
     await newUser.save();
-    response.json({ message: "User registered successfully" });
+    response.status(201).json({ message: "User registered successfully" });
 }
 
 
