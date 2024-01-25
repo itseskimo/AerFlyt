@@ -368,12 +368,12 @@ export const getAllReviews = async (request, response) => {
 
 export const addCalendar = async (request, response) => {
     const userId = request.user._id;
-    const user = await UserModel.findOne({ _id: userId });
+    const user = request.user.username;
 
     try {
         const result = await CalendarModel.findOneAndUpdate(
             { userId },
-            { name: user.username, calendars: request.body },
+            { name:user , calendars: request.body },
             { upsert: true, new: true }
         );
 
