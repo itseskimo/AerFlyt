@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const CalendarSchema = new mongoose.Schema({
+  userId: { type: String, required: true },
   calendars: [
     {
       day: { type: String, required: true },

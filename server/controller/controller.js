@@ -129,6 +129,30 @@ export const textExtraction = async (request, response) => {
 }
 
 
+
+export const verifyToken = async (req, res, next) => {
+    const token = req?.headers?.authorization?.split(' ')[1];
+
+    if (!token) {
+        return res.status(401).json({ message: 'Unauthorized - Token not provided' });
+    }
+
+    try {
+        const decoded = jwt.verify(token, 'secret');
+        req.user = await UserModel.findOne({ _id: decoded.id });
+
+        if (!req.user) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        next();
+    } catch (error) {
+        return res.status(401).json({ message: 'Unauthorized - Invalid token' });
+    }
+};
+
+
+
 export const login = async (request, response) => {
 
     const { username, password } = request.body;
@@ -343,15 +367,33 @@ export const getAllReviews = async (request, response) => {
 }
 
 
-export const addCalendar = async (request, response) => {    
-
-    const newEntry = new CalendarModel({calendars:request.body});
-
+export const addCalendar = async (request, response) => {
+    const userId = request.user._id;
+console.log(request.user,request.body)
     try {
-        await newEntry.save();
-        response.json({ message: 'Calendar entry added successfully' });
+        const result = await CalendarModel.findOneAndUpdate(
+            { userId },
+            { calendars: request.body },
+            { upsert: true, new: true }
+        );
+
+        if (result) {
+            response.json({ message: 'Calendar entry added/updated successfully' });
+        } else {
+            response.status(500).json({ message: 'Internal Server Error' });
+        }
     } catch (error) {
-        console.error('Error saving calendar entry:', error);
+        console.error('Error saving/updating calendar entry:', error);
         response.status(500).json({ message: 'Internal Server Error' });
     }
 };
+
+export const getAllPhysioSchedule = async (request, response) => {
+    const userId = request.user._id
+    try {
+        const calendarEntries = await CalendarModel.find({userId});
+        response.json(calendarEntries);
+    } catch (error) {
+        response.status(500).json({ message: "Internal Server Error" });
+    }
+}
