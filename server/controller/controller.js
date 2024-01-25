@@ -367,33 +367,14 @@ export const getAllReviews = async (request, response) => {
 
 
 
+
 export const addCalendar = async (request, response) => {
     const userId = request.user._id;
-
-    
+console.log(request.user,request.body)
     try {
-        // Fetch existing data based on userId
-        const existingData = await CalendarModel.findOne({ userId });
-
-        // Merge existingData.calendars with the new data without duplicating entries
-        const mergedCalendars = existingData
-            ? existingData.calendars.map(existingEntry => {
-                  const matchingNewEntry = request.body.find(newEntry => newEntry.day === existingEntry.day && newEntry.date === existingEntry.date);
-
-                  if (matchingNewEntry) {
-                      // If the entry exists, update the selectedSlots
-                      existingEntry.selectedSlots = matchingNewEntry.selectedSlots;
-                      return existingEntry;
-                  } else {
-                      return existingEntry;
-                  }
-              })
-            : request.body;
-
-        // Update the document with the merged calendars
         const result = await CalendarModel.findOneAndUpdate(
             { userId },
-            { calendars: mergedCalendars },
+            { calendars: request.body },
             { upsert: true, new: true }
         );
 
