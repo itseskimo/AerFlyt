@@ -6,9 +6,8 @@ import DoctorModel from '../model/doctors.js';
 import ReviewsModel from '../model/review.js';
 import CalendarModel from '../model/calendar.js'
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
-
-
+// import bcrypt from "bcrypt";
+const bcrypt = require('bcryptjs');
 
 export const textExtraction = async (request, response) => {
     const CREDENTIALS = JSON.parse(JSON.stringify(
