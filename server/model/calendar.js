@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const CalendarSchema = new mongoose.Schema({
   userId: { type: String, required: true },
   name: { type: String, required: true },
@@ -7,9 +8,16 @@ const CalendarSchema = new mongoose.Schema({
     {
       day: { type: String, required: true },
       date: { type: String, required: true },
-      selectedSlots: { type: [String], default: [] },
-    }
-  ]
+      selectedSlots: [
+        {
+          remark: { type: String, default: '' },
+          assignedDoctor: { type: String, default: '' },
+          period: { type: String, default: '' },
+          timestamp: { type: String, required: true },
+        },
+      ],
+    },
+  ],
 });
   
   const CalendarModel = mongoose.model('Calendar', CalendarSchema);
