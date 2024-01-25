@@ -366,15 +366,14 @@ export const getAllReviews = async (request, response) => {
 }
 
 
-
-
 export const addCalendar = async (request, response) => {
     const userId = request.user._id;
-console.log(request.user,request.body)
+    const user = await UserModel.findOne({ _id: userId });
+
     try {
         const result = await CalendarModel.findOneAndUpdate(
             { userId },
-            { calendars: request.body },
+            { name: user.username, calendars: request.body },
             { upsert: true, new: true }
         );
 
@@ -389,11 +388,21 @@ console.log(request.user,request.body)
     }
 };
 
+
 export const getAllPhysioSchedule = async (request, response) => {
     const userId = request.user._id
     try {
-        const calendarEntries = await CalendarModel.find({userId});
+        const calendarEntries = await CalendarModel.find({ userId });
         response.json(calendarEntries);
+    } catch (error) {
+        response.status(500).json({ message: "Internal Server Error" });
+    }
+}
+
+export const getAllDoctorsInfo = async (request, response) => {
+    try {
+        const doctors = await CalendarModel.find();
+        response.json(doctors);
     } catch (error) {
         response.status(500).json({ message: "Internal Server Error" });
     }
