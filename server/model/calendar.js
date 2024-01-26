@@ -14,11 +14,17 @@ const CalendarSchema = new mongoose.Schema({
           assignedDoctor: { type: String, default: '' },
           period: { type: String, default: '' },
           timestamp: { type: String, required: true },
+          users: [
+            {
+              remarks: { type: String, required: true },
+              userId: { type: String, required: true },
+            }
+          ]
         },
       ],
     },
   ],
 });
-  
-  const CalendarModel = mongoose.model('Calendar', CalendarSchema);
-  export default CalendarModel;
+
+const CalendarModel = mongoose.model('Calendar', CalendarSchema);
+export default CalendarModel;
