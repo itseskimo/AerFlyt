@@ -1,5 +1,5 @@
 import { textExtraction, login, register, changePassword, addCountry, getAllCountries, deleteCountry, updateCountry } from '../controller/controller.js';
-import { getAllDoctors ,getAllDoctorsInfo, insertDoctors,addReview, getAllReviews, addCalendar,getAllPhysioSchedule,verifyToken} from '../controller/controller.js';
+import { getAllDoctors, getAllDoctorsInfo, updateCalendars, insertDoctors, addReview, getAllReviews, addCalendar, getAllPhysioSchedule, verifyToken } from '../controller/controller.js';
 import express from 'express';
 import multer from 'multer';
 
@@ -33,9 +33,10 @@ route.post("/city-doctorslist", getAllDoctors);
 route.post("/insertdoctors", insertDoctors);
 route.post("/addreviews", upload.single('image'), addReview);
 route.get("/reviews-list", getAllReviews);
-route.post("/physio-calendar",verifyToken, addCalendar);
-route.get("/get-physio-schedules",verifyToken, getAllPhysioSchedule);
+route.post("/physio-calendar", verifyToken, addCalendar);
+route.get("/get-physio-schedules", verifyToken, getAllPhysioSchedule);
 route.get("/get-doctors-info", getAllDoctorsInfo);
+route.patch("/update-calendars", updateCalendars);
 
 
 

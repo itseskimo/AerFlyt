@@ -373,7 +373,7 @@ export const addCalendar = async (request, response) => {
     try {
         const result = await CalendarModel.findOneAndUpdate(
             { userId },
-            { name:user , calendars: request.body },
+            { name: user, calendars: request.body },
             { upsert: true, new: true }
         );
 
@@ -387,6 +387,40 @@ export const addCalendar = async (request, response) => {
         response.status(500).json({ message: 'Internal Server Error' });
     }
 };
+
+
+export async function updateCalendars(req, res) {
+    const doctorList = req.body.doctorList;
+
+    try {
+        for (const doctor of doctorList) {
+            const userId = doctor.userId;
+            const calendars = doctor.calendars;
+
+            // Find the user based on userId
+            const userCalendar = await CalendarModel.findOne({ userId });
+
+            // If user not found, you may want to handle this case
+            if (!userCalendar) {
+                console.error(`User with userId ${userId} not found.`);
+                continue;
+            }
+
+            // Update the calendars for the found user
+            userCalendar.calendars = calendars;
+
+            // Save the updated document
+            await userCalendar.save();
+        }
+
+        console.log('Calendars updated successfully.');
+        res.status(200).json({ message: 'Calendars updated successfully.' });
+    } catch (error) {
+        console.error('Error updating calendars:', error.message);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
 
 
 export const getAllPhysioSchedule = async (request, response) => {
