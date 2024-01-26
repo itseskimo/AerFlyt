@@ -36,7 +36,7 @@ route.get("/reviews-list", getAllReviews);
 route.post("/physio-calendar", verifyToken, addCalendar);
 route.get("/get-physio-schedules", verifyToken, getAllPhysioSchedule);
 route.get("/get-doctors-info", getAllDoctorsInfo);
-route.patch("/update-calendars", updateCalendars);
+route.post("/update-calendars", updateCalendars);
 
 
 

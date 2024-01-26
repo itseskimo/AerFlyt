@@ -391,7 +391,7 @@ export const addCalendar = async (request, response) => {
 
 export async function updateCalendars(req, res) {
     const doctorList = req.body;
-
+console.log(doctorList)
     try {
         for (const doctor of doctorList) {
             const userId = doctor.userId;
