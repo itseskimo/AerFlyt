@@ -15,7 +15,7 @@ const CalendarSchema = new mongoose.Schema({
           timestamp: { type: String, required: true },
           users: [
             {
-              remarks: { type: String, required: true },
+              remarks: { type: String, default: '' },
               userId: { type: String, required: true },
             }
           ]
