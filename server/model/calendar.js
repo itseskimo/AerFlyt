@@ -10,7 +10,6 @@ const CalendarSchema = new mongoose.Schema({
       date: { type: String, required: true },
       selectedSlots: [
         {
-          remark: { type: String, default: '' },
           assignedDoctor: { type: String, default: '' },
           period: { type: String, default: '' },
           timestamp: { type: String, required: true },
