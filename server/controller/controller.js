@@ -378,7 +378,7 @@ export const addCalendar = async (request, response) => {
         );
 
         if (result) {
-            response.json({ message: 'Calendar entry added/updated successfully' });
+            response.status(200).json({ message: 'Calendar entry added/updated successfully' });
         } else {
             response.status(500).json({ message: 'Internal Server Error' });
         }
