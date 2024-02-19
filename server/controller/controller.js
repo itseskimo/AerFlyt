@@ -186,9 +186,9 @@ export const register = async (request, response) => {
         return response.status(400).json({ message: "Username already exists" });
     }
 
-    if (!role) {
-        return response.status(400).json({ message: "Please Select a Role!" })
-    }
+    // if (!role) {
+    //     return response.status(400).json({ message: "Please Select a Role!" })
+    // }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new UserModel({ username, password: hashedPassword, role });
